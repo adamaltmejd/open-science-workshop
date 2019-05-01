@@ -1,0 +1,22 @@
+<div id="hidden" style="display:none;">
+    <div id="header">
+        <div id="header-left"></div>
+        <div id="header-right"></div>
+        <div id="footer-left"></div>
+        <div id="footer-right"></div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.4.0.slim.min.js"></script>
+<script type="text/javascript">
+    // 3. On Reveal.js ready event, copy header/footer <div> into each `.slide-background` <div>
+    var header = $('#header').html();
+    if (window.location.search.match(/print-pdf/gi)) {
+        Reveal.addEventListener('ready', function (event) {
+            $('.slide-background').append(header);
+        });
+    }
+    else {
+        $('div.reveal').append(header);
+    }
+</script>

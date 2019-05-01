@@ -1,0 +1,556 @@
+---
+title: "Open Science & Reproducibility"
+author: Adam Altmejd
+date: May 2nd, 2019
+bibliography: assets/bibliography.bib
+csl: assets/chicago-author-date.csl
+output:
+  revealjs::revealjs_presentation:
+    width: 960
+    height: 700
+    theme: white
+    highlight: pygments
+    transition: none
+    self_contained: false
+    lib_dir: "assets/lib"
+    reveal_plugins: ["notes"]
+    reveal_options:
+      controls: false
+      slideNumber: true
+      progress: true
+      center: true
+      showNotes: true
+      pdfSeparateFragments: false
+      pdfMaxPagesPerSlide: 1
+    css: "assets/style.css"
+    includes:
+      after_body: "assets/after_body.html"
+---
+
+#
+
+```{r setup,echo=FALSE,include=FALSE,cache=FALSE}
+library(rmarkdown)
+library(knitr)
+library(data.table)
+library(pander)
+library(ggplot2)
+library(RColorBrewer)
+opts_chunk$set(cache.path = "assets/cache", fig.path = "assets/img/knitr_")
+```
+
+1. The replication crisis
+2. The problem
+3. What to do about it
+
+<!-- ===================== -->
+<!--         PART 1        -->
+<!-- ===================== -->
+
+# Part 1<br /> --- <br />The Replication Crisis
+
+##
+
+<p class="stretch"><img src="assets/img/carney2010.png"></p>
+<footer>Original: @Carney2010_power_posing. Replication: @Ranehill2015_assessing_robustness.</footer>
+
+##
+
+<p class="stretch"><img alt="Eyes & Generosity" src="assets/img/bateson2006.png"></p>
+<footer>Original: @Bateson2006_cues_being. Replication: @Northover2017_artificial_surveillance.</footer>
+
+##
+
+<p class="stretch"><img alt="Currency Priming" src="assets/img/caruso2013.png"></p>
+<footer>Original: @Caruso2013_mere_exposure. Replication: @Klein2014_investigating_variation.</footer>
+
+##
+
+<p class="stretch"><img alt="Macbeth" src="assets/img/zhong2006.png"></p>
+<footer>Original: @Zhong2006_washing_away. Replication: @Earp2014_out_damned.</footer>
+
+##
+
+<p class="stretch"><img alt="Pen+Smile" src="assets/img/strack1988.png"></p>
+<footer>Original: @Strack1988_inhibiting_facilitating. Replication: @Wagenmakers2016_registered_replication.</footer>
+
+## Science/Nature Replications
+
+<p class="stretch"><img alt="SSRP" src="assets/img/ssrp_descriptions.png"></p>
+<footer>@Camerer2018_evaluating_replicability</footer>
+<aside class="notes" data-markdown>
+Results from replication projects:
+- 36/100 [RPP](https://osf.io/ezcuj/)
+- 11/18 [EERP](https://osf.io/bzm54/)
+- 13/21 [SSRP](https://osf.io/pfdyw/)
+- [ML1](https://osf.io/wx7ck/): 13 effects 36 samples (N=6344), 2 failed - about sample heterogeneity countries
+- [ML2](https://osf.io/8cd4r/): 28 effects, 125 samples (N=15305), 13 failed, much more heterogeneity in failed replications, no difference with country WIERD status
+- [ML3](https://osf.io/ct89g/): 10 effects in 20 pools (N=2696+737), 7 failed - heterogeneity time of semester
+- [ML4](https://osf.io/8ccnw/): Replicating "Terror Management Theory" in different settings
+- [ML5](https://osf.io/7a6rd/): investigates pre data collection peer review of 10 "non-endorsed" RPP protocols, testing direct replication vs "improved protocol"
+- Registered Replication Reports ?/?
+</aside>
+
+## Replication Heterogeneity
+
+<p class="stretch"><img alt="ML2" src="assets/img/ml2.png"></p>
+<footer>@Klein2018_many_labs</footer>
+<aside class="notes" data-markdown>
+Totally 125 labs participated with 15k subjects, 28 effects (all expert reviewed).
+In plot, small bars indicate results from each lab. Main takeaway: variation exists,
+but most effects either replicate or not. No matter the country or other (unobserved?)
+lab-specific variation. Grey triangle shows WIERD sample, empty triangle less WIERD.
+</aside>
+
+## Why Should we Care?
+
+##
+
+<div style="text-align: left;">For science:</div>
+
+> "non-reproducible single occurrences are of no significance to science"
+
+<div style="text-align: left;">For our careers:</div>
+
+> "I have spent nearly a decade working on the concept of ego depletion [...] The problem is that ego depletion might not even be a thing."
+
+<p class="stretch">&nbsp;</p>
+<footer>@Popper2005_logic_scientific, @Inzlicht2016_reckoning</footer>
+
+## Impact
+
+<p class="stretch"><img alt="ML2" src="assets/img/wakefield1998.png"></p>
+
+## The Goal
+
+<p><span class="fragment">Produce <b>reproducibile</b> research that can be <i>replicated easily</i>.</span></p><br>
+<ul class="fragment">
+<li><b>Reproduction</b>: Re-analyze with push of a button.</li>
+<li><b>Direct Replication</b>: internal validity</li>
+<li><b>Conceptual Replication</b>: external validity</li>
+</ul>
+
+
+<!-- ===================== -->
+<!--         PART 2        -->
+<!-- ===================== -->
+
+# Part 2<br /> --- <br />"Why Most Published Research Findings are False"
+<footer>@Ioannidis2005_why_most</footer>
+
+##
+
+1. **Publication Bias**
+2. **Forking (p-hacking)**
+3. **Low Statistical Power**
+4. **Scientific Misconduct**
+
+##
+<p class="stretch"><img alt="ML2" src="assets/img/munafo2017.jpg"></p>
+<footer>@Munafo2017_manifesto_reproducible</footer>
+
+## Publication Bias
+
+<p><i>Published research is not representative.</i></p>
+<ul class="fragment">
+<li>Hard to assess knowledge</li>
+<li>Incentive to p-hack</li>
+</ul>
+
+## The File Drawer
+
+<p class="stretch">
+```{r franco_plot,echo=FALSE}
+dt <- data.frame(
+  Evidence = c("Null Results", "Null Results", "Null Results", "Null Results",
+               "Mixed Results", "Mixed Results", "Mixed Results", "Mixed Results",
+               "Strong Results", "Strong Results", "Strong Results", "Strong Results"),
+  Result = c("Not written", "Written but not published", "Published (non-top-tier)", "Published (top-tier)",
+             "Not written", "Written but not published", "Published (non-top-tier)", "Published (top-tier)",
+             "Not written", "Written but not published", "Published (non-top-tier)", "Published (top-tier)"),
+  Value = c(0.646, 0.146, 0.104, 0.104,
+            0.122, 0.390, 0.378, 0.110,
+            0.044, 0.341, 0.384, 0.231)
+)
+
+g <- ggplot(data=dt, aes(x = factor(Evidence, levels = c("Null Results", "Mixed Results", "Strong Results")),
+                         fill = factor(Result, levels = c("Published (top-tier)", "Published (non-top-tier)", "Written but not published", "Not written")),
+                         y = Value, )) +
+  geom_bar(stat = "identity") +
+  theme_light() +
+  theme(legend.position = "right",
+        legend.title = element_blank(),
+        axis.title = element_blank()) +
+  scale_y_continuous(labels = scales::percent_format(accuracy = 1)) +
+  scale_fill_brewer(palette="Set3")
+print(g)
+```
+</p>
+<footer>@Franco2014_publication_bias</footer>
+<aside class="notes" data-markdown>
+Paper analyzes 200 experiments in Social Sciences (mainly Pol Sci, Psych and Soc).
+Uses TESS (Time-Sharing Experiments in the Social Sciences).  All experiments
+peer reviewed, done by same analytics firm, requires power calculation. Likely
+lower bound of all research.
+</aside>
+
+## Forking, P-hacking, Fishing, Researcher Degrees of Freedom
+
+##
+
+<p class="stretch"><img alt="xkcd comic part 1" src="assets/img/xkcd_1.png"></p>
+
+##
+
+<p class="stretch"><img alt="xkcd comic part 2" src="assets/img/xkcd_2.png"></p>
+
+##
+
+<p class="stretch"><img alt="xkcd comic part 3" src="assets/img/xkcd_3.png"></p>
+
+## P-Hacking in Economics
+
+<p class="stretch"><img alt="ML2" src="assets/img/brodeur2016.png"></p>
+<footer>Papers in Economics, @Brodeur2016_star_wars</footer>
+<aside class="notes" data-markdown>
+Plots show distribution of **z-stats** in AER, QJE, JPE. Total sample 50k tests.
+Camel shape of missing p-values is p-hacking to get p-stats just below 0.05.
+Publication bias is downward-slope over whole distribution.
+"Eye-catchers" refers to the use of stars to make significant results salient.
+</aside>
+
+## Forking Paths
+
+<p class="fragment">Even with a pre-stated hypothesis and no *concious* p-hacking, each design
+choice is a fork in the path towards a finished paper.</p>
+<p class="fragment">If observed significance influences these choices, <br>**p-values are meaningless**.</p>
+<footer>@Gelman2013_garden_forking</footer>
+
+## Forking Checklist
+
+<p class="stretch"><img alt="ML2" src="assets/img/wicherts2016.png"></p>
+<footer>@Wicherts2016_degrees_freedom</footer>
+
+## What is a P-value?
+
+*Under the null*, how **likely** is the observed data
+
+Says **nothing** about assumptions+hypothesis validity
+
+<aside class="notes">
+Imagine you have a coin and want to determine if its fair or not. We set a=0.05.
+This gives us a rejection region (with a=0.05) at 0,1,9,10 heads in 10 flips.
+Seeing 9 heads in a trial has a p-value of ~0.02. We reject the null because
+if the null was true, our data would be too unlikely.<br>
+Notice how this doesn't say anything about whether the null is true or not. Or
+about the actual fairness of the coin. If the coin is actually not fair, the
+likelyhood we would observe the data depends on its bias.<br>
+Remembering that p-values don't validate hypothesis might make it easier to
+stop relying so much on them.
+</aside>
+
+##
+<p class="stretch"><img alt="ML2" src="assets/img/nuzzo2014.png"></p>
+<footer>@Nuzzo2014_scientific_method</footer>
+<aside class="notes">
+Depending on original odds "likelihood to observe effect" can vary greatly.
+Figure can be understood as follows: p-value gives likelihood to observe data
+under null, but is the effect (alternative hypothesis) true? We study a
+hypothesis thats really unlikely (long-shot) and observe some data. The data
+is so extreme that it would be unlikely under the null, so we reject H0. But
+because the hypothesis was really unlikely to start with, this just changes our
+prior of 10% to a posterior of 11%.
+</aside>
+
+## Low Statistical Power
+
+* Even with registries, subgroups can get small
+* Empirical Economics: median power 18%
+* Type-M/S errors:
+<p class="stretch"><img alt="ML2" src="assets/img/gelman2014.png"></p>
+<footer>@Gelman2014_power_calculations, @Ioannidis2017_power_bias</footer>
+
+<aside class="notes">
+@Ioannidis2017_power_bias
+"We survey 159 empirical economics literatures that draw upon 64,076 estimates
+of economic parameters reported in more than 6,700 empirical studies. Half
+of the research areas have nearly 90% of their results under‐powered.
+The median statistical power is 18%, or less. A simple weighted average of
+those reported results that are adequately powered (power ≥ 80%) reveals
+that nearly 80% of the reported effects in these empirical economics
+literatures are exaggerated; typically, by a factor of two and with
+one‐third inflated by a factor of four or more."
+</aside>
+
+## Scientific Misconduct
+
+* Uncommon, but not as rare as you think
+* Hard to fix, need strong norms
+
+##
+
+<p class="stretch"><img alt="ML2" src="assets/img/john2012.png"></p>
+<footer>@John2012_measuring_prevalence</footer>
+<aside class="notes">
+Bayesian truth serum incentives for truthtelling. Each participant is surveyed
+bout (a) their own questionable research practice (QRP), (b) their percieved
+prevalence in the population and (c) their belief about others likelihood
+to admit.
+</aside>
+
+<!-- ===================== -->
+<!--         PART 3        -->
+<!-- ===================== -->
+
+# Part 3<br /> --- <br />What can you do?
+
+## Study Registration
+
+<p class="fragment">Public demonstration of precedence</p>
+<div class="fragment"><p>**Pre**-registration --- *Before* accessing data</p>
+<ul>
+<li>combats file-drawer</li>
+<li>protects against forking</li>
+<li>fends off reviewer #2</li>
+</ul>
+</div>
+
+## OSF Registration
+
+<p><img alt="ML2" src="assets/img/registration.png"></p>
+
+* [OSF.io](http://osf.io) registration by *freezing* a project.
+* Or: [AEA RCT Registry](https://www.socialscienceregistry.org/), [AsPredicted](https://aspredicted.org/), [EGAP Registry](http://egap.org/content/registration)
+
+<aside class="notes">
+OSF registration is great. Much freer than others, not as specific to
+experimental work. Can include analysis plan, code files, pilot data, etc.
+</aside>
+
+## Pre-Analysis Plan
+
+*Pick a path through the garden and stick to it.*
+
+Focus: sample selection, estimation
+
+Also: motivation, literature
+
+<p class="fragment">Could be: your paper before results <br>(maybe extension of grant proposal)</p>
+
+<aside class="notes">
+Like @Coffman2015_preanalysis_plans argue, pre-analysis plans are even more
+important in empirical work, where replication is often hard or impossible. If
+all the data is already used, we can't just generate more by running another
+experiment.
+
+Most important to tie hands with regards to forking. Pick one path
+in the garden and stick to it. See check list.
+But can also be useful to include motivation, literature review etc to claim a
+position in the research literature and explain all the research design choices.
+</aside>
+
+## Register a Pre-Analysis Plan
+
+* Ideal: registration *outputs final results*
+* **Very hard** with empirical research
+* Instead, be as detailed as possible,
+* consider data *lock-box* and two registrations
+
+<aside class="notes">
+With empirical work it is almost impossible to figure everything out before
+looking at the data. Instead it can be really useful to adopt a lock-box approach.
+(1) Write a pre-analysis plan with everything you know and register it. Then take
+half (if possible) or as little as a few observations if you are worried about power,
+out of the lock box. Do the analysis, fix all the unexpected errors,
+do as much data exploration as you want. Then register another version of the
+PAP (at this point it might almost be a paper). Only then do you use the rest
+of the data.<br>
+In Sweden, Statistics Sweden could provide the lock box as they deliver all data.
+Just tell them you only want them to share x% with you.
+</aside>
+
+## PAP Example 1
+
+<p class="stretch"><img src="assets/img/pap1.png"></p>
+<footer>@Altmejd2017_pre_analysis</footer>
+
+## PAP Example 2
+
+<p class="stretch"><img src="assets/img/pap2.png"></p>
+<footer>@Altmejd2017_pre_analysis</footer>
+
+## PAP Example 3
+
+<p class="stretch"><img src="assets/img/pap3.png"></p>
+<footer>@Altmejd2017_pre_analysis</footer>
+
+## Alternative:<br>Specification Curve
+
+If you cannot *pre*-pick one analysis, study **all**
+
+<footer>@Simonsohn2015_specification_curve</footer>
+
+<aside class="notes">
+Also known as: multiverse analysis [@Steegen2016_increasing_transparency].
+</aside>
+
+## Birth Order
+### Self-Reported Intellect
+
+<p class="stretch"><img src="assets/img/rohrer2017_intellect.png"></p>
+<footer>@Rohrer2017_probing_birthorder</footer>
+<aside class="notes" data-markdown>
+Birth order effects on self-reported intellect. Here we see a clear positive effect,
+with most specifications being significant in the same direction. There also
+doesn't seem to exist any systematic reason for non-significance.
+</aside>
+
+## Birth Order
+### Positive Reciprocity
+
+<p class="stretch"><img src="assets/img/rohrer2017_reciprocity.png"></p>
+<footer>@Rohrer2017_probing_birthorder</footer>
+<aside class="notes" data-markdown>
+Birth order effects on positive reciprocity. Here on the other hand there does
+not seem to exist any relationship. Effects are distrubted in both directions. Most
+significant effects are negative, but not many are significant. Only sibships of 2,
+with close (but not too close) age difference. Effect is only visible in
+within-family analysis, but what does this even mean in a family of two siblings?
+</aside>
+
+## A Reproducibility-Enhancing Research Workflow
+
+## Data Management
+
+* Never edit raw input data directly
+* Keep processed data in separate folder
+
+<p class="stretch"><img src="assets/img/folder_structure.png"></p>
+
+## Reproducible Code
+
+* *Self-documenting* code: naming, structure, formatting
+* Each code file has separate purpose
+* Use comments when needed
+* Use functions/programs, never write same code twice
+* Literate programming in *RMarkdown*
+
+<aside class="notes">
+Comments should often not be needed if code speaks for itself. Don't worry about
+long variable names. Prioritize legibility over smaller files or efficient code,
+to the extent possible. Ensure that someone else can understand what your code
+does.<br>
+File naming and folder structure is super important. Always use documentation
+headers at the top of code files that explain what the file does. Try to divide
+separate parts of data processing/analysis into different files. Maybe one file
+processes raw data on occupational changes, another identifies family connections,
+and a third joins the two first.
+</aside>
+
+## Example
+
+```{r}
+rowmeans <- function(x, y) {
+  # Calculate pairwise means of numeric input vectors.
+  # Input: two vectors of equal length; "x", "y"
+  # Output: one vector "out" of means.
+
+  if (length(x) != length(y)) stop("x, y have unequal lengths")
+
+  # Create empty vector to fill with rowmeans
+  out <- vector("numeric", length = length(x))
+
+  for (i in seq_along(x)) {
+    # For each row, calculate mean of x and y and store in z.
+    out[i] <- mean(c(x[i], y[i]))
+  }
+
+  return(out)
+}
+```
+
+## Version Control
+
+* Keep *annotated* history of changes
+* Documents progress in research
+* Keep track of latest version
+* Collaborate efficiently, reconcile conflicts
+* Only works with text files, not Word
+
+## Version Control in Github
+
+* Git is opensource VCS, hosted by Github
+* One *repository* per project
+* Changes tracked through *commits*
+* Link to OSF, freeze for registration
+
+<footer>Tip: Register for [Github Education](https://education.github.com)</footer>
+
+<aside class="notes">
+Git is the open source software that Github uses. One does not need github really,
+but it is very useful for beginners, especially together with their Github Desktop
+app and when collaborating with others as Github can host your repository.<br>
+A repository is a folder that houses your project. Git creates a hidden folder
+called .git in which all your changes are tracked.<br>
+When working with Git, commit often, but not too often. Each commit should have
+a specific purpose, e.g. "accounted for inflation in income measures" or
+"new version of table 4".<br>
+Remember that when working with sensitive data, you most likely cannot store your
+data in your git repository. Use the .gitignore file to exclude the raw data if
+needed, or self-host your remote repository on a secure server.
+</aside>
+
+## Github Desktop
+
+## Data Sharing
+
+* Without data, reproduction is impossible
+* Never compromise privacy
+* Alternatives: retrieval protocol, data store
+<footer>Swedish registry data: [Swedish National Data Service, SND](https://snd.gu.se/en)</footer>
+
+<aside class="notes">
+For someone to reproduce our research they need access to the data. But we often
+cannot share data for e.g. ethical reasons. Working with registry data we have
+two options. We can share a detailed specification of exactly what registries we
+use, including names of all variables so that the researcher reproducing our work
+can submit their own ethics application, buy the data from SCB and redo the study.
+This would be really expensive though. Instead, a better option (although I'm not
+sure if it actually works) is to store the registry data at SND and allow
+other researchers to analyze it without having access to view the actual data.
+</aside>
+
+
+## Institutional Change
+
+### Journals should:
+
+<ul>
+<li class="fragment">use results-blind review,</li>
+<li class="fragment">require study registration,</li>
+<li class="fragment">require data publication,</li>
+<li class="fragment">require reproducible code.</li>
+<ul>
+
+<aside class="notes" data-markdown>
+Change already well underway, but needs strong advocates. [JDE has results blind review](https://medium.com/center-for-effective-global-action/pre-results-review-at-the-journal-of-development-economics-taking-transparency-in-the-discipline-cc1e7e74182a).
+AER requires development but not lab experiments to be registered.
+Another example are the Open Science Badges that more and more journals are
+using, and that seem to really work [@Kidwell2016_badges_acknowledge]
+</aside>
+
+
+<!-- ===================== -->
+<!--        THE END        -->
+<!-- ===================== -->
+
+# Readings
+
+* [Code and Data](https://web.stanford.edu/~gentzkow/research/CodeAndData.pdf) [@Gentzkow2014_code_data]
+* [Best Practices Manual](https://github.com/garretchristensen/BestPracticesManual/blob/master/Manual.pdf) [@Christensen2018_manual_best]
+
+### Thank you!
+
+<adam@altmejd.se>
+
+# References {#references}

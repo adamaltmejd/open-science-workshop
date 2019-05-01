@@ -502,6 +502,8 @@ needed, or self-host your remote repository on a secure server.
 
 ## Github Desktop
 
+<p class="stretch"><img src="assets/img/github_desktop.png"></p>
+
 ## Data Sharing
 
 * Without data, reproduction is impossible
@@ -519,7 +521,6 @@ This would be really expensive though. Instead, a better option (although I'm no
 sure if it actually works) is to store the registry data at SND and allow
 other researchers to analyze it without having access to view the actual data.
 </aside>
-
 
 ## Institutional Change
 

@@ -150,6 +150,13 @@ lab-specific variation. Grey triangle shows WIERD sample, empty triangle less WI
 ## Impact
 
 <p class="stretch"><img alt="ML2" src="assets/img/wakefield1998.png"></p>
+<aside class="notes">
+The vaccines cause autism-paper is the absolute worst case of when bad science
+has horrible consequences. Having been disproven twenty years ago, and
+retracted for at least a decade, it is still widely shared and cited as a
+cause to not vaccinate. While it is a case of grave scientific misconduct,
+its publication might have been avoided in an "open science" research culture.
+</aside>
 
 ## The Goal
 
@@ -580,7 +587,7 @@ using, and that seem to really work [@Kidwell2016_badges_acknowledge]
 * [Code and Data](https://web.stanford.edu/~gentzkow/research/CodeAndData.pdf) [@Gentzkow2014_code_data]
 * [Best Practices Manual](https://github.com/garretchristensen/BestPracticesManual/blob/master/Manual.pdf) [@Christensen2018_manual_best]
 
-### Thank you!
+# Thank you!
 
 <adam@altmejd.se>
 

@@ -1,3 +1,6 @@
+# Ignore reveal.js library
+slides/assets/lib/reveal.js-3.3.0.1
+
 # History files
 .Rhistory
 .Rapp.history

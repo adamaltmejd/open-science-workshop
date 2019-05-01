@@ -167,13 +167,15 @@ its publication might have been avoided in an "open science" research culture.
 <li><b>Conceptual Replication</b>: external validity</li>
 </ul>
 
+## Discussion
+
+Is there a replication crisis for Sociology?
 
 <!-- ===================== -->
 <!--         PART 2        -->
 <!-- ===================== -->
 
-# Part 2<br /> --- <br />"Why Most Published Research Findings are False"
-<footer>@Ioannidis2005_why_most</footer>
+# Part 2<br /> --- <br />The Problem
 
 ##
 
@@ -197,7 +199,8 @@ its publication might have been avoided in an "open science" research culture.
 ## The File Drawer
 
 <p class="stretch">
-```{r franco_plot,echo=FALSE}
+
+```{r franco_plot, echo=FALSE}
 dt <- data.frame(
   Evidence = c("Null Results", "Null Results", "Null Results", "Null Results",
                "Mixed Results", "Mixed Results", "Mixed Results", "Mixed Results",
@@ -222,6 +225,7 @@ g <- ggplot(data=dt, aes(x = factor(Evidence, levels = c("Null Results", "Mixed 
   scale_fill_brewer(palette="Set3")
 print(g)
 ```
+
 </p>
 <footer>@Franco2014_publication_bias</footer>
 <aside class="notes" data-markdown>
@@ -335,6 +339,10 @@ prevalence in the population and (c) their belief about others likelihood
 to admit.
 </aside>
 
+## Discussion
+
+What are the main problems in Sociology?
+
 <!-- ===================== -->
 <!--         PART 3        -->
 <!-- ===================== -->
@@ -372,7 +380,7 @@ Focus: sample selection, estimation
 
 Also: motivation, literature
 
-<p class="fragment">Could be: your paper before results <br>(maybe extension of grant proposal)</p>
+Could be: your paper before results <br>(maybe extension of grant proposal)
 
 <aside class="notes">
 Like @Coffman2015_preanalysis_plans argue, pre-analysis plans are even more
@@ -421,7 +429,7 @@ Just tell them you only want them to share x% with you.
 <p class="stretch"><img src="assets/img/pap3.png"></p>
 <footer>@Altmejd2017_pre_analysis</footer>
 
-## Alternative:<br>Specification Curve
+## Specification Curve
 
 If you cannot *pre*-pick one analysis, study **all**
 
@@ -508,7 +516,7 @@ rowmeans <- function(x, y) {
 
 ## Version Control
 
-* Keep *annotated* history of changes
+* *Annotated* history of changes
 * Documents progress in research
 * Keep track of latest version
 * Collaborate efficiently, reconcile conflicts
@@ -564,10 +572,10 @@ other researchers to analyze it without having access to view the actual data.
 ### Journals should:
 
 <ul>
-<li class="fragment">use results-blind review,</li>
-<li class="fragment">require study registration,</li>
-<li class="fragment">require data publication,</li>
-<li class="fragment">require reproducible code.</li>
+<li>use results-blind review,</li>
+<li>require study registration,</li>
+<li>require data publication,</li>
+<li>require reproducible code.</li>
 <ul>
 
 <aside class="notes" data-markdown>
@@ -577,6 +585,9 @@ Another example are the Open Science Badges that more and more journals are
 using, and that seem to really work [@Kidwell2016_badges_acknowledge]
 </aside>
 
+## Discussion
+
+What methods could you implement in your current project?
 
 <!-- ===================== -->
 <!--        THE END        -->

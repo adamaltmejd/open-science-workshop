@@ -8,4 +8,6 @@ build all `.Rmd` presentations in the folder, just run `make all`.
 
 ## List of slides
 
+Handouts only in **Google Chrome** and have to be printed/exported in *landscape mode*.
+
 [Introduction to Open Science](open_science.html) - [handout](open_science.html?print-pdf&showNotes=true)

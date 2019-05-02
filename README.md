@@ -1,2 +1,3 @@
-# open-science-workshop
-Learning materials to make your research more open and reproducibile.
+# Adam Altmejd's slides
+
+Slides use [Reveal.js](reveal.js) and are available online at <https://adamaltmejd.se/slides>.

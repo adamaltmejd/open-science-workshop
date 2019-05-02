@@ -141,7 +141,7 @@ lab-specific variation. Grey triangle shows WIERD sample, empty triangle less WI
 
 ### Impact
 
-<p class="stretch"><img alt="ML2" src="assets/img/wakefield1998.png"></p>
+<p class="stretch"><img alt="Wakefield 1998" src="assets/img/wakefield1998.png"></p>
 <aside class="notes">
 The vaccines cause autism-paper is the absolute worst case of when bad science
 has horrible consequences. Having been disproven twenty years ago, and

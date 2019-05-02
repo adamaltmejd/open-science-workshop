@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Adam Altmejd" />
+  <title>Open Science &amp; Reproducibility</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="assets/lib/reveal.js-3.3.0.1/css/reveal.css"/>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="assets/lib/reveal.js-3.3.0.1/css/theme/white.css" id="theme">
+
+
+  <!-- some tweaks to reveal css -->
+  <style type="text/css">
+    .reveal h1 { font-size: 2.0em; }
+    .reveal h2 { font-size: 1.5em;  }
+    .reveal h3 { font-size: 1.25em;	}
+    .reveal h4 { font-size: 1em;	}
+
+    .reveal .slides>section,
+    .reveal .slides>section>section {
+      padding: 0px 0px;
+    }
+
+
+
+    .reveal table {
+      border-width: 1px;
+      border-spacing: 2px;
+      border-style: dotted;
+      border-color: gray;
+      border-collapse: collapse;
+      font-size: 0.7em;
+    }
+
+    .reveal table th {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      font-weight: bold;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+    .reveal table td {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+
+  </style>
+
+    <style type="text/css">code{white-space: pre;}</style>
+
+    <link rel="stylesheet" href="assets/style.css"/>
+
+<!-- Printing and PDF exports -->
+<script id="paper-css" type="application/dynamic-css">
+
+/* Default Print Stylesheet Template
+   by Rob Glazebrook of CSSnewbie.com
+   Last Updated: June 4, 2008
+
+   Feel free (nay, compelled) to edit, append, and
+   manipulate this file as you see fit. */
+
+
+@media print {
+
+	/* SECTION 1: Set default width, margin, float, and
+	   background. This prevents elements from extending
+	   beyond the edge of the printed page, and prevents
+	   unnecessary background images from printing */
+	html {
+		background: #fff;
+		width: auto;
+		height: auto;
+		overflow: visible;
+	}
+	body {
+		background: #fff;
+		font-size: 20pt;
+		width: auto;
+		height: auto;
+		border: 0;
+		margin: 0 5%;
+		padding: 0;
+		overflow: visible;
+		float: none !important;
+	}
+
+	/* SECTION 2: Remove any elements not needed in print.
+	   This would include navigation, ads, sidebars, etc. */
+	.nestedarrow,
+	.controls,
+	.fork-reveal,
+	.share-reveal,
+	.state-background,
+	.reveal .progress,
+	.reveal .backgrounds {
+		display: none !important;
+	}
+
+	/* SECTION 3: Set body font face, size, and color.
+	   Consider using a serif font for readability. */
+	body, p, td, li, div {
+		font-size: 20pt!important;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		color: #000;
+	}
+
+	/* SECTION 4: Set heading font face, sizes, and color.
+	   Differentiate your headings from your body text.
+	   Perhaps use a large sans-serif for distinction. */
+	h1,h2,h3,h4,h5,h6 {
+		color: #000!important;
+		height: auto;
+		line-height: normal;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		text-shadow: 0 0 0 #000 !important;
+		text-align: left;
+		letter-spacing: normal;
+	}
+	/* Need to reduce the size of the fonts for printing */
+	h1 { font-size: 28pt !important;  }
+	h2 { font-size: 24pt !important; }
+	h3 { font-size: 22pt !important; }
+	h4 { font-size: 22pt !important; font-variant: small-caps; }
+	h5 { font-size: 21pt !important; }
+	h6 { font-size: 20pt !important; font-style: italic; }
+
+	/* SECTION 5: Make hyperlinks more usable.
+	   Ensure links are underlined, and consider appending
+	   the URL to the end of the link for usability. */
+	a:link,
+	a:visited {
+		color: #000 !important;
+		font-weight: bold;
+		text-decoration: underline;
+	}
+	/*
+	.reveal a:link:after,
+	.reveal a:visited:after {
+		content: " (" attr(href) ") ";
+		color: #222 !important;
+		font-size: 90%;
+	}
+	*/
+
+
+	/* SECTION 6: more reveal.js specific additions by @skypanther */
+	ul, ol, div, p {
+		visibility: visible;
+		position: static;
+		width: auto;
+		height: auto;
+		display: block;
+		overflow: visible;
+		margin: 0;
+		text-align: left !important;
+	}
+	.reveal pre,
+	.reveal table {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.reveal pre code {
+		padding: 20px;
+		border: 1px solid #ddd;
+	}
+	.reveal blockquote {
+		margin: 20px 0;
+	}
+	.reveal .slides {
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 0 !important;
+		zoom: 1 !important;
+
+		overflow: visible !important;
+		display: block !important;
+
+		text-align: left !important;
+		-webkit-perspective: none;
+		   -moz-perspective: none;
+		    -ms-perspective: none;
+		        perspective: none;
+
+		-webkit-perspective-origin: 50% 50%;
+		   -moz-perspective-origin: 50% 50%;
+		    -ms-perspective-origin: 50% 50%;
+		        perspective-origin: 50% 50%;
+	}
+	.reveal .slides section {
+		visibility: visible !important;
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+		display: block !important;
+		overflow: visible !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 60px 20px !important;
+		z-index: auto !important;
+
+		opacity: 1 !important;
+
+		page-break-after: always !important;
+
+		-webkit-transform-style: flat !important;
+		   -moz-transform-style: flat !important;
+		    -ms-transform-style: flat !important;
+		        transform-style: flat !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+
+		-webkit-transition: none !important;
+		   -moz-transition: none !important;
+		    -ms-transition: none !important;
+		        transition: none !important;
+	}
+	.reveal .slides section.stack {
+		padding: 0 !important;
+	}
+	.reveal section:last-of-type {
+		page-break-after: avoid !important;
+	}
+	.reveal section .fragment {
+		opacity: 1 !important;
+		visibility: visible !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+	}
+	.reveal section img {
+		display: block;
+		margin: 15px 0px;
+		background: rgba(255,255,255,1);
+		border: 1px solid #666;
+		box-shadow: none;
+	}
+
+	.reveal section small {
+		font-size: 0.8em;
+	}
+
+}  
+</script>
+
+
+<script id="pdf-css" type="application/dynamic-css">
+    
+/**
+ * This stylesheet is used to print reveal.js
+ * presentations to PDF.
+ *
+ * https://github.com/hakimel/reveal.js#pdf-export
+ */
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+
+body {
+	margin: 0 auto !important;
+	border: 0;
+	padding: 0;
+	float: none !important;
+	overflow: visible;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+}
+
+/* Remove any elements not needed in print. */
+.nestedarrow,
+.reveal .controls,
+.reveal .progress,
+.reveal .playback,
+.reveal.overview,
+.fork-reveal,
+.share-reveal,
+.state-background {
+	display: none !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	text-shadow: 0 0 0 #000 !important;
+}
+
+.reveal pre code {
+	overflow: hidden !important;
+	font-family: Courier, 'Courier New', monospace !important;
+}
+
+ul, ol, div, p {
+	visibility: visible;
+	position: static;
+	width: auto;
+	height: auto;
+	display: block;
+	overflow: visible;
+	margin: auto;
+}
+.reveal {
+	width: auto !important;
+	height: auto !important;
+	overflow: hidden !important;
+}
+.reveal .slides {
+	position: static;
+	width: 100%;
+	height: auto;
+
+	left: auto;
+	top: auto;
+	margin: 0 !important;
+	padding: 0 !important;
+
+	overflow: visible;
+	display: block;
+
+	-webkit-perspective: none;
+	   -moz-perspective: none;
+	    -ms-perspective: none;
+	        perspective: none;
+
+	-webkit-perspective-origin: 50% 50%; /* there isn't a none/auto value but 50-50 is the default */
+	   -moz-perspective-origin: 50% 50%;
+	    -ms-perspective-origin: 50% 50%;
+	        perspective-origin: 50% 50%;
+}
+
+.reveal .slides section {
+	page-break-after: always !important;
+
+	visibility: visible !important;
+	position: relative !important;
+	display: block !important;
+	position: relative !important;
+
+	margin: 0 !important;
+	padding: 0 !important;
+	box-sizing: border-box !important;
+	min-height: 1px;
+
+	opacity: 1 !important;
+
+	-webkit-transform-style: flat !important;
+	   -moz-transform-style: flat !important;
+	    -ms-transform-style: flat !important;
+	        transform-style: flat !important;
+
+	-webkit-transform: none !important;
+	   -moz-transform: none !important;
+	    -ms-transform: none !important;
+	        transform: none !important;
+}
+
+.reveal section.stack {
+	margin: 0 !important;
+	padding: 0 !important;
+	page-break-after: avoid !important;
+	height: auto !important;
+	min-height: auto !important;
+}
+
+.reveal img {
+	box-shadow: none;
+}
+
+.reveal .roll {
+	overflow: visible;
+	line-height: 1em;
+}
+
+/* Slide backgrounds are placed inside of their slide when exporting to PDF */
+.reveal section .slide-background {
+	display: block !important;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: -1;
+}
+
+/* All elements should be above the slide-background */
+.reveal section>* {
+	position: relative;
+	z-index: 1;
+}
+
+/* Display slide speaker notes when 'showNotes' is enabled */
+.reveal .speaker-notes-pdf {
+	display: block;
+	width: 100%;
+	max-height: none;
+	left: auto;
+	top: auto;
+	z-index: 100;
+}
+
+/* Display slide numbers when 'slideNumber' is enabled */
+.reveal .slide-number-pdf {
+	display: block;
+	position: absolute;
+	font-size: 14px;
+}
+
+</script>
+
+
+<script>
+var style = document.createElement( 'style' );
+style.type = 'text/css';
+var style_script_id = window.location.search.match( /print-pdf/gi ) ? 'pdf-css' : 'paper-css';
+var style_script = document.getElementById(style_script_id).text;
+style.innerHTML = style_script;
+document.getElementsByTagName('head')[0].appendChild(style);
+</script>
+
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">Open Science &amp; Reproducibility</h1>
+    <h2 class="author">Adam Altmejd</h2>
+    <h3 class="date">May 2nd, 2019</h3>
+</section>
+
+<section id="section" class="title-slide slide level1"><h1></h1><ol type="1">
+<li>The replication crisis</li>
+<li>The problem</li>
+<li>What to do about it</li>
+</ol>
+<!-- ===================== -->
+<!--         PART 1        -->
+<!-- ===================== --></section>
+<section><section id="part-1-the-replication-crisis" class="title-slide slide level1"><h1>Part 1<br /> — <br />The Replication Crisis</h1></section><section id="section-1" class="slide level2">
+<h2></h2>
+<p class="stretch">
+<img src="assets/img/carney2010.png">
+</p>
+<footer>
+Original: <span class="citation" data-cites="Carney2010_power_posing">Carney, Cuddy, and Yap (2010)</span>. Replication: <span class="citation" data-cites="Ranehill2015_assessing_robustness">Ranehill et al. (2015)</span>.
+</footer>
+<aside class="notes">
+The power posing study found that taking a power pose does not only increase self-assessed power, but actually increases testosterone, i.e. having a chemical response that makes you more powerful. While the increased feeling of power does reproduce, the hormonal response does not.
+</aside>
+</section><section id="section-2" class="slide level2">
+<h2></h2>
+<p class="stretch">
+<img alt="Eyes & Generosity" src="assets/img/bateson2006.png">
+</p>
+<footer>
+Original: <span class="citation" data-cites="Bateson2006_cues_being">Bateson, Nettle, and Roberts (2006)</span>. Replication: <span class="citation" data-cites="Northover2017_artificial_surveillance">Northover et al. (2017)</span>.
+</footer>
+<aside class="notes">
+In this study the researchers posted notes of either “watchful eyes” or flowers above a cookie jar in the common kitchen, alternating every week. They find that the eyes increases honest behavior. Weeks with eyes had money closer to the expected amount if everyone paid for themselves.
+</aside>
+</section><section id="section-3" class="slide level2">
+<h2></h2>
+<p class="stretch">
+<img alt="Currency Priming" src="assets/img/caruso2013.png">
+</p>
+<footer>
+Original: <span class="citation" data-cites="Caruso2013_mere_exposure">Caruso et al. (2013)</span>. Replication: <span class="citation" data-cites="Klein2014_investigating_variation">Klein et al. (2014)</span>.
+</footer>
+<aside class="notes">
+In this study subjects answered questions about social justice, treatment group saw the questions on a computer screen where the background image showed a dollar bill. They more strungly justified the current social system.
+</aside>
+</section><section id="section-4" class="slide level2">
+<h2></h2>
+<p class="stretch">
+<img alt="Macbeth" src="assets/img/zhong2006.png">
+</p>
+<footer>
+Original: <span class="citation" data-cites="Zhong2006_washing_away">Zhong and Liljenquist (2006)</span>. Replication: <span class="citation" data-cites="Earp2014_out_damned">Earp et al. (2014)</span>.
+</footer>
+<aside class="notes">
+The “Macbeth” study. Here subjects first transcribed a story. Treated subjects transcribed an immoral (sabotaging for a co-worker) story, written in first person. They then answered questions about how much they wanted different products, among them cleaning products.
+</aside>
+</section><section id="section-5" class="slide level2">
+<h2></h2>
+<p class="stretch">
+<img alt="Pen+Smile" src="assets/img/strack1988.png">
+</p>
+<footer>
+Original: <span class="citation" data-cites="Strack1988_inhibiting_facilitating">Strack, Martin, and Stepper (1988)</span>. Replication: <span class="citation" data-cites="Wagenmakers2016_registered_replication">Wagenmakers et al. (2016)</span>.
+</footer>
+<aside class="notes">
+In this study, subjects had to watch a funny movie with a pen in their mouth. Treated subjects had to hold the pen with their teeth, while control subjects helt it with their lips. Holding the pen with your teeth forces the mouth into a smile-like position. Afterwards subjects rated how fun they thought the movie was. Pen-in-teeth subjects thought the movie was funnier.
+</aside>
+</section><section id="sciencenature-replications" class="slide level2">
+<h2>Science/Nature Replications</h2>
+<p class="stretch">
+<img alt="SSRP" src="assets/img/ssrp_descriptions.png">
+</p>
+<footer>
+<span class="citation" data-cites="Camerer2018_evaluating_replicability">Camerer et al. (2018)</span>
+</footer>
+<aside class="notes">
+Results from replication projects:<br> - 36/100 <a href="https://osf.io/ezcuj/">RPP</a><br> - 11/18 <a href="https://osf.io/bzm54/">EERP</a><br> - 13/21 <a href="https://osf.io/pfdyw/">SSRP</a><br> - <a href="https://osf.io/wx7ck/">ML1</a>: 13 effects 36 samples (N=6344), 2 failed - about sample heterogeneity countries<br> - <a href="https://osf.io/8cd4r/">ML2</a>: 28 effects, 125 samples (N=15305), 13 failed, much more heterogeneity in failed replications, no difference with country WIERD status<br> - <a href="https://osf.io/ct89g/">ML3</a>: 10 effects in 20 pools (N=2696+737), 7 failed - heterogeneity time of semester<br> - <a href="https://osf.io/8ccnw/">ML4</a>: Replicating “Terror Management Theory” in different settings<br> - <a href="https://osf.io/7a6rd/">ML5</a>: investigates pre data collection peer review of 10 “non-endorsed” RPP protocols, testing direct replication vs “improved protocol”<br> - Registered Replication Reports ?/?
+</aside>
+</section><section id="replication-heterogeneity" class="slide level2">
+<h2>Replication Heterogeneity</h2>
+<p class="stretch">
+<img alt="ML2" src="assets/img/ml2.png">
+</p>
+<footer>
+<span class="citation" data-cites="Klein2018_many_labs">Klein et al. (2018)</span>
+</footer>
+<aside class="notes" data-markdown>
+Totally 125 labs participated with 15k subjects, 28 effects (all expert reviewed). In plot, small bars indicate results from each lab. Main takeaway: variation exists, but most effects either replicate or not. No matter the country or other (unobserved?) lab-specific variation. Grey triangle shows WIERD sample, empty triangle less WIERD.
+</aside>
+</section><section id="why-should-we-care" class="slide level2">
+<h2>Why Should we Care?</h2>
+</section><section id="section-6" class="slide level2">
+<h2></h2>
+<div style="text-align: left;">
+For science:
+</div>
+<blockquote>
+<p>“non-reproducible single occurrences are of no significance to science”</p>
+</blockquote>
+<div style="text-align: left;">
+For our careers:
+</div>
+<blockquote>
+<p>“I have spent nearly a decade working on the concept of ego depletion […] The problem is that ego depletion might not even be a thing.”</p>
+</blockquote>
+<p class="stretch">
+ 
+</p>
+<footer>
+<span class="citation" data-cites="Popper2005_logic_scientific">Popper (2005)</span>, <span class="citation" data-cites="Inzlicht2016_reckoning">Inzlicht (2016)</span>
+</footer>
+</section><section id="impact" class="slide level2">
+<h2>Impact</h2>
+<p class="stretch">
+<img alt="ML2" src="assets/img/wakefield1998.png">
+</p>
+<aside class="notes">
+The vaccines cause autism-paper is the absolute worst case of when bad science has horrible consequences. Having been disproven twenty years ago, and retracted for at least a decade, it is still widely shared and cited as a cause to not vaccinate. While it is a case of grave scientific misconduct, its publication might have been avoided in an “open science” research culture.
+</aside>
+</section><section id="the-goal" class="slide level2">
+<h2>The Goal</h2>
+<p>
+<span class="fragment">Produce <b>reproducibile</b> research that can be <i>replicated easily</i>.</span>
+</p>
+<br>
+<ul class="fragment">
+<li>
+<b>Reproduction</b>: Re-analyze with push of a button.
+</li>
+<li>
+<b>Direct Replication</b>: internal validity
+</li>
+<li>
+<b>Conceptual Replication</b>: external validity
+</li>
+</ul>
+</section><section id="discussion" class="slide level2">
+<h2>Discussion</h2>
+<p>Is there a replication crisis for Sociology?</p>
+<!-- ===================== -->
+<!--         PART 2        -->
+<!-- ===================== -->
+</section></section>
+<section><section id="part-2-the-problem" class="title-slide slide level1"><h1>Part 2<br /> — <br />The Problem</h1></section><section id="section-7" class="slide level2">
+<h2></h2>
+<ol type="1">
+<li><strong>Publication Bias</strong></li>
+<li><strong>Forking (p-hacking)</strong></li>
+<li><strong>Low Statistical Power</strong></li>
+<li><strong>Scientific Misconduct</strong></li>
+</ol>
+</section><section id="section-8" class="slide level2">
+<h2></h2>
+<p class="stretch">
+<img alt="ML2" src="assets/img/munafo2017.jpg">
+</p>
+<footer>
+<span class="citation" data-cites="Munafo2017_manifesto_reproducible">Munafò et al. (2017)</span>
+</footer>
+</section><section id="publication-bias" class="slide level2">
+<h2>Publication Bias</h2>
+<p>
+<i>Published research is not representative.</i>
+</p>
+<ul class="fragment">
+<li>
+Hard to assess knowledge
+</li>
+<li>
+Incentive to p-hack
+</li>
+</ul>
+</section><section id="the-file-drawer" class="slide level2">
+<h2>The File Drawer</h2>
+<p class="stretch">
+<p><img src="assets/img/knitr_franco_plot-1.png" width="768" /></p>
+</p>
+<footer>
+<span class="citation" data-cites="Franco2014_publication_bias">Franco, Malhotra, and Simonovits (2014)</span>
+</footer>
+<aside class="notes" data-markdown>
+Paper analyzes 200 experiments in Social Sciences (mainly Pol Sci, Psych and Soc). Uses TESS (Time-Sharing Experiments in the Social Sciences). All experiments peer reviewed, done by same analytics firm, requires power calculation. Likely lower bound of all research.
+</aside>
+</section><section id="forking-p-hacking-fishing-researcher-degrees-of-freedom" class="slide level2">
+<h2>Forking, P-hacking, Fishing, Researcher Degrees of Freedom</h2>
+</section><section id="section-9" class="slide level2">
+<h2></h2>
+<p class="stretch">
+<img alt="xkcd comic part 1" src="assets/img/xkcd_1.png">
+</p>
+</section><section id="section-10" class="slide level2">
+<h2></h2>
+<p class="stretch">
+<img alt="xkcd comic part 2" src="assets/img/xkcd_2.png">
+</p>
+</section><section id="section-11" class="slide level2">
+<h2></h2>
+<p class="stretch">
+<img alt="xkcd comic part 3" src="assets/img/xkcd_3.png">
+</p>
+</section><section id="p-hacking-in-economics" class="slide level2">
+<h2>P-Hacking in Economics</h2>
+<p class="stretch">
+<img alt="ML2" src="assets/img/brodeur2016.png">
+</p>
+<footer>
+Papers in Economics, <span class="citation" data-cites="Brodeur2016_star_wars">Brodeur et al. (2016)</span>
+</footer>
+<aside class="notes" data-markdown>
+Plots show distribution of <strong>z-stats</strong> in AER, QJE, JPE. Total sample 50k tests. Camel shape of missing p-values is p-hacking to get p-stats just below 0.05. Publication bias is downward-slope over whole distribution. “Eye-catchers” refers to the use of stars to make significant results salient.
+</aside>
+</section><section id="forking-paths" class="slide level2">
+<h2>Forking Paths</h2>
+<p class="fragment">
+Even with a pre-stated hypothesis and no <em>concious</em> p-hacking, each design choice is a fork in the path towards a finished paper.
+</p>
+<p class="fragment">
+If observed significance influences these choices, <br><strong>p-values are meaningless</strong>.
+</p>
+<footer>
+<span class="citation" data-cites="Gelman2013_garden_forking">Gelman and Loken (2013)</span>
+</footer>
+</section><section id="forking-checklist" class="slide level2">
+<h2>Forking Checklist</h2>
+<p class="stretch">
+<img alt="ML2" src="assets/img/wicherts2016.png">
+</p>
+<footer>
+<span class="citation" data-cites="Wicherts2016_degrees_freedom">Wicherts et al. (2016)</span>
+</footer>
+</section><section id="what-is-a-p-value" class="slide level2">
+<h2>What is a P-value?</h2>
+<p><em>Under the null</em>, how <strong>likely</strong> is the observed data</p>
+<p>Says <strong>nothing</strong> about assumptions+hypothesis validity</p>
+<aside class="notes">
+Imagine you have a coin and want to determine if its fair or not. We set a=0.05. This gives us a rejection region (with a=0.05) at 0,1,9,10 heads in 10 flips. Seeing 9 heads in a trial has a p-value of ~0.02. We reject the null because if the null was true, our data would be too unlikely.<br> Notice how this doesn’t say anything about whether the null is true or not. Or about the actual fairness of the coin. If the coin is actually not fair, the likelyhood we would observe the data depends on its bias.<br> Remembering that p-values don’t validate hypothesis might make it easier to stop relying so much on them.
+</aside>
+</section><section id="section-12" class="slide level2">
+<h2></h2>
+<p class="stretch">
+<img alt="ML2" src="assets/img/nuzzo2014.png">
+</p>
+<footer>
+<span class="citation" data-cites="Nuzzo2014_scientific_method">Nuzzo (2014)</span>
+</footer>
+<aside class="notes">
+Depending on original odds “likelihood to observe effect” can vary greatly. Figure can be understood as follows: p-value gives likelihood to observe data under null, but is the effect (alternative hypothesis) true? We study a hypothesis thats really unlikely (long-shot) and observe some data. The data is so extreme that it would be unlikely under the null, so we reject H0. But because the hypothesis was really unlikely to start with, this just changes our prior of 10% to a posterior of 11%.
+</aside>
+</section><section id="low-statistical-power" class="slide level2">
+<h2>Low Statistical Power</h2>
+<ul>
+<li>Even with registries, subgroups can get small</li>
+<li>Empirical Economics: median power 18%</li>
+<li>Type-M/S errors:
+<p class="stretch">
+<img alt="ML2" src="assets/img/gelman2014.png">
+</p>
+<footer>
+<span class="citation" data-cites="Gelman2014_power_calculations">Gelman and Carlin (2014)</span>, <span class="citation" data-cites="Ioannidis2017_power_bias">Ioannidis, Stanley, and Doucouliagos (2017)</span>
+</footer></li>
+</ul>
+<aside class="notes">
+<span class="citation" data-cites="Ioannidis2017_power_bias">Ioannidis, Stanley, and Doucouliagos (2017)</span> “We survey 159 empirical economics literatures that draw upon 64,076 estimates of economic parameters reported in more than 6,700 empirical studies. Half of the research areas have nearly 90% of their results under‐powered. The median statistical power is 18%, or less. A simple weighted average of those reported results that are adequately powered (power ≥ 80%) reveals that nearly 80% of the reported effects in these empirical economics literatures are exaggerated; typically, by a factor of two and with one‐third inflated by a factor of four or more.”
+</aside>
+</section><section id="scientific-misconduct" class="slide level2">
+<h2>Scientific Misconduct</h2>
+<ul>
+<li>Uncommon, but not as rare as you think</li>
+<li>Hard to fix, need strong norms</li>
+</ul>
+</section><section id="section-13" class="slide level2">
+<h2></h2>
+<p class="stretch">
+<img alt="ML2" src="assets/img/john2012.png">
+</p>
+<footer>
+<span class="citation" data-cites="John2012_measuring_prevalence">John, Loewenstein, and Prelec (2012)</span>
+</footer>
+<aside class="notes">
+Bayesian truth serum incentives for truthtelling. Each participant is surveyed bout (a) their own questionable research practice (QRP), (b) their percieved prevalence in the population and (c) their belief about others likelihood to admit.
+</aside>
+</section><section id="discussion-1" class="slide level2">
+<h2>Discussion</h2>
+<p>What are the main problems in Sociology?</p>
+<!-- ===================== -->
+<!--         PART 3        -->
+<!-- ===================== -->
+</section></section>
+<section><section id="part-3-what-can-you-do" class="title-slide slide level1"><h1>Part 3<br /> — <br />What can you do?</h1></section><section id="study-registration" class="slide level2">
+<h2>Study Registration</h2>
+<p class="fragment">
+Public demonstration of precedence
+</p>
+<div class="fragment">
+<p>
+<strong>Pre</strong>-registration — <em>Before</em> accessing data
+</p>
+<ul>
+<li>
+combats file-drawer
+</li>
+<li>
+protects against forking
+</li>
+<li>
+fends off reviewer #2
+</li>
+</ul>
+</div>
+</section><section id="osf-registration" class="slide level2">
+<h2>OSF Registration</h2>
+<p>
+<img alt="ML2" src="assets/img/registration.png">
+</p>
+<ul>
+<li><a href="http://osf.io">OSF.io</a> registration by <em>freezing</em> a project.</li>
+<li>Or: <a href="https://www.socialscienceregistry.org/">AEA RCT Registry</a>, <a href="https://aspredicted.org/">AsPredicted</a>, <a href="http://egap.org/content/registration">EGAP Registry</a></li>
+</ul>
+<aside class="notes">
+OSF registration is great. Much freer than others, not as specific to experimental work. Can include analysis plan, code files, pilot data, etc.
+</aside>
+</section><section id="pre-analysis-plan" class="slide level2">
+<h2>Pre-Analysis Plan</h2>
+<p><em>Pick a path through the garden and stick to it.</em></p>
+<p>Focus: sample selection, estimation</p>
+<p>Also: motivation, literature</p>
+<p>Could be: your paper before results <br>(maybe extension of grant proposal)</p>
+<aside class="notes">
+<p>Like <span class="citation" data-cites="Coffman2015_preanalysis_plans">Coffman and Niederle (2015)</span> argue, pre-analysis plans are even more important in empirical work, where replication is often hard or impossible. If all the data is already used, we can’t just generate more by running another experiment.</p>
+Most important to tie hands with regards to forking. Pick one path in the garden and stick to it. See check list. But can also be useful to include motivation, literature review etc to claim a position in the research literature and explain all the research design choices.
+</aside>
+</section><section id="register-a-pre-analysis-plan" class="slide level2">
+<h2>Register a Pre-Analysis Plan</h2>
+<ul>
+<li>Ideal: registration <em>outputs final results</em></li>
+<li><strong>Very hard</strong> with empirical research</li>
+<li>Instead, be as detailed as possible,</li>
+<li>consider data <em>lock-box</em> and two registrations</li>
+</ul>
+<aside class="notes">
+With empirical work it is almost impossible to figure everything out before looking at the data. Instead it can be really useful to adopt a lock-box approach. (1) Write a pre-analysis plan with everything you know and register it. Then take half (if possible) or as little as a few observations if you are worried about power, out of the lock box. Do the analysis, fix all the unexpected errors, do as much data exploration as you want. Then register another version of the PAP (at this point it might almost be a paper). Only then do you use the rest of the data.<br> In Sweden, Statistics Sweden could provide the lock box as they deliver all data. Just tell them you only want them to share x% with you.
+</aside>
+</section><section id="pap-example-1" class="slide level2">
+<h2>PAP Example 1</h2>
+<p class="stretch">
+<img src="assets/img/pap1.png">
+</p>
+<footer>
+<span class="citation" data-cites="Altmejd2017_pre_analysis">Altmejd (2017)</span>
+</footer>
+</section><section id="pap-example-2" class="slide level2">
+<h2>PAP Example 2</h2>
+<p class="stretch">
+<img src="assets/img/pap2.png">
+</p>
+<footer>
+<span class="citation" data-cites="Altmejd2017_pre_analysis">Altmejd (2017)</span>
+</footer>
+</section><section id="pap-example-3" class="slide level2">
+<h2>PAP Example 3</h2>
+<p class="stretch">
+<img src="assets/img/pap3.png">
+</p>
+<footer>
+<span class="citation" data-cites="Altmejd2017_pre_analysis">Altmejd (2017)</span>
+</footer>
+</section><section id="specification-curve" class="slide level2">
+<h2>Specification Curve</h2>
+<p>If you cannot <em>pre</em>-pick one analysis, study <strong>all</strong></p>
+<footer>
+<span class="citation" data-cites="Simonsohn2015_specification_curve">Simonsohn, Simmons, and Nelson (2015)</span>
+</footer>
+<aside class="notes">
+Also known as: multiverse analysis <span class="citation" data-cites="Steegen2016_increasing_transparency">(Steegen et al. 2016)</span>.
+</aside>
+</section><section id="birth-order" class="slide level2">
+<h2>Birth Order</h2>
+<h3 id="self-reported-intellect">Self-Reported Intellect</h3>
+<p class="stretch">
+<img src="assets/img/rohrer2017_intellect.png">
+</p>
+<footer>
+<span class="citation" data-cites="Rohrer2017_probing_birthorder">Rohrer, Egloff, and Schmukle (2017)</span>
+</footer>
+<aside class="notes" data-markdown>
+Birth order effects on self-reported intellect. Here we see a clear positive effect, with most specifications being significant in the same direction. There also doesn’t seem to exist any systematic reason for non-significance.
+</aside>
+</section><section id="birth-order-1" class="slide level2">
+<h2>Birth Order</h2>
+<h3 id="positive-reciprocity">Positive Reciprocity</h3>
+<p class="stretch">
+<img src="assets/img/rohrer2017_reciprocity.png">
+</p>
+<footer>
+<span class="citation" data-cites="Rohrer2017_probing_birthorder">Rohrer, Egloff, and Schmukle (2017)</span>
+</footer>
+<aside class="notes" data-markdown>
+Birth order effects on positive reciprocity. Here on the other hand there does not seem to exist any relationship. Effects are distrubted in both directions. Most significant effects are negative, but not many are significant. Only sibships of 2, with close (but not too close) age difference. Effect is only visible in within-family analysis, but what does this even mean in a family of two siblings?
+</aside>
+</section><section id="a-reproducibility-enhancing-research-workflow" class="slide level2">
+<h2>A Reproducibility-Enhancing Research Workflow</h2>
+</section><section id="data-management" class="slide level2">
+<h2>Data Management</h2>
+<ul>
+<li>Never edit raw input data directly</li>
+<li>Keep processed data in separate folder</li>
+</ul>
+<p class="stretch">
+<img src="assets/img/folder_structure.png">
+</p>
+</section><section id="reproducible-code" class="slide level2">
+<h2>Reproducible Code</h2>
+<ul>
+<li><em>Self-documenting</em> code: naming, structure, formatting</li>
+<li>Each code file has separate purpose</li>
+<li>Use comments when needed</li>
+<li>Use functions/programs, never write same code twice</li>
+<li>Literate programming in <em>RMarkdown</em></li>
+</ul>
+<aside class="notes">
+Comments should often not be needed if code speaks for itself. Don’t worry about long variable names. Prioritize legibility over smaller files or efficient code, to the extent possible. Ensure that someone else can understand what your code does.<br> File naming and folder structure is super important. Always use documentation headers at the top of code files that explain what the file does. Try to divide separate parts of data processing/analysis into different files. Maybe one file processes raw data on occupational changes, another identifies family connections, and a third joins the two first.
+</aside>
+</section><section id="example" class="slide level2">
+<h2>Example</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1">rowmeans &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) {</a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="co"># Calculate pairwise means of numeric input vectors.</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="co"># Input: two vectors of equal length; &quot;x&quot;, &quot;y&quot;</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="co"># Output: one vector &quot;out&quot; of means.</span></a>
+<a class="sourceLine" id="cb1-5" title="5"></a>
+<a class="sourceLine" id="cb1-6" title="6">  <span class="cf">if</span> (<span class="kw">length</span>(x) <span class="op">!=</span><span class="st"> </span><span class="kw">length</span>(y)) <span class="kw">stop</span>(<span class="st">&quot;x, y have unequal lengths&quot;</span>)</a>
+<a class="sourceLine" id="cb1-7" title="7"></a>
+<a class="sourceLine" id="cb1-8" title="8">  <span class="co"># Create empty vector to fill with rowmeans</span></a>
+<a class="sourceLine" id="cb1-9" title="9">  out &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;numeric&quot;</span>, <span class="dt">length =</span> <span class="kw">length</span>(x))</a>
+<a class="sourceLine" id="cb1-10" title="10"></a>
+<a class="sourceLine" id="cb1-11" title="11">  <span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq_along</span>(x)) {</a>
+<a class="sourceLine" id="cb1-12" title="12">    <span class="co"># For each row, calculate mean of x and y and store in z.</span></a>
+<a class="sourceLine" id="cb1-13" title="13">    out[i] &lt;-<span class="st"> </span><span class="kw">mean</span>(<span class="kw">c</span>(x[i], y[i]))</a>
+<a class="sourceLine" id="cb1-14" title="14">  }</a>
+<a class="sourceLine" id="cb1-15" title="15"></a>
+<a class="sourceLine" id="cb1-16" title="16">  <span class="kw">return</span>(out)</a>
+<a class="sourceLine" id="cb1-17" title="17">}</a></code></pre></div>
+</section><section id="version-control" class="slide level2">
+<h2>Version Control</h2>
+<ul>
+<li><em>Annotated</em> history of changes</li>
+<li>Documents progress in research</li>
+<li>Keep track of latest version</li>
+<li>Collaborate efficiently, reconcile conflicts</li>
+<li>Only works with text files, not Word</li>
+</ul>
+</section><section id="version-control-in-github" class="slide level2">
+<h2>Version Control in Github</h2>
+<ul>
+<li>Git is opensource VCS, hosted by Github</li>
+<li>One <em>repository</em> per project</li>
+<li>Changes tracked through <em>commits</em></li>
+<li>Link to OSF, freeze for registration</li>
+</ul>
+<footer>
+Tip: Register for <a href="https://education.github.com">Github Education</a>
+</footer>
+<aside class="notes">
+Git is the open source software that Github uses. One does not need github really, but it is very useful for beginners, especially together with their Github Desktop app and when collaborating with others as Github can host your repository.<br> A repository is a folder that houses your project. Git creates a hidden folder called .git in which all your changes are tracked.<br> When working with Git, commit often, but not too often. Each commit should have a specific purpose, e.g. “accounted for inflation in income measures” or “new version of table 4”.<br> Remember that when working with sensitive data, you most likely cannot store your data in your git repository. Use the .gitignore file to exclude the raw data if needed, or self-host your remote repository on a secure server.
+</aside>
+</section><section id="github-desktop" class="slide level2">
+<h2>Github Desktop</h2>
+<p class="stretch">
+<img src="assets/img/github_desktop.png">
+</p>
+</section><section id="data-sharing" class="slide level2">
+<h2>Data Sharing</h2>
+<ul>
+<li>Without data, reproduction is impossible</li>
+<li>Never compromise privacy</li>
+<li>Alternatives: retrieval protocol, data store
+<footer>
+Swedish registry data: <a href="https://snd.gu.se/en">Swedish National Data Service, SND</a>
+</footer></li>
+</ul>
+<aside class="notes">
+For someone to reproduce our research they need access to the data. But we often cannot share data for e.g. ethical reasons. Working with registry data we have two options. We can share a detailed specification of exactly what registries we use, including names of all variables so that the researcher reproducing our work can submit their own ethics application, buy the data from SCB and redo the study. This would be really expensive though. Instead, a better option (although I’m not sure if it actually works) is to store the registry data at SND and allow other researchers to analyze it without having access to view the actual data.
+</aside>
+</section><section id="institutional-change" class="slide level2">
+<h2>Institutional Change</h2>
+<h3 id="journals-should">Journals should:</h3>
+<ul>
+<li>
+use results-blind review,
+</li>
+<li>
+require study registration,
+</li>
+<li>
+require data publication,
+</li>
+<li>
+require reproducible code.
+</li>
+<ul>
+<aside class="notes" data-markdown>
+Change already well underway, but needs strong advocates. <a href="https://medium.com/center-for-effective-global-action/pre-results-review-at-the-journal-of-development-economics-taking-transparency-in-the-discipline-cc1e7e74182a">JDE has results blind review</a>. AER requires development but not lab experiments to be registered. Another example are the Open Science Badges that more and more journals are using, and that seem to really work <span class="citation" data-cites="Kidwell2016_badges_acknowledge">(Kidwell et al. 2016)</span>
+</aside>
+</section><section id="discussion-2" class="slide level2">
+<h2>Discussion</h2>
+<p>What methods could you implement in your current project?</p>
+<!-- ===================== -->
+<!--        THE END        -->
+<!-- ===================== -->
+</section></section>
+<section id="readings" class="title-slide slide level1"><h1>Readings</h1><ul>
+<li><a href="https://web.stanford.edu/~gentzkow/research/CodeAndData.pdf">Code and Data</a> <span class="citation" data-cites="Gentzkow2014_code_data">(Gentzkow and Shapiro 2014)</span></li>
+<li><a href="https://github.com/garretchristensen/BestPracticesManual/blob/master/Manual.pdf">Best Practices Manual</a> <span class="citation" data-cites="Christensen2018_manual_best">(Christensen 2018)</span></li>
+</ul></section>
+<section id="thank-you" class="title-slide slide level1"><h1>Thank you!</h1><p><a href="mailto:adam@altmejd.se" class="email">adam@altmejd.se</a></p></section>
+<section id="references" class="title-slide slide level1 unnumbered"><h1>References</h1><div id="refs" class="references" role="doc-bibliography">
+<div id="ref-Altmejd2017_pre_analysis">
+<p>Altmejd, Adam. 2017. “Pre Analysis Plan: Effects of Education Choice.” October 3, 2017. <a href="https://osf.io/rj6t7/">https://osf.io/rj6t7/</a>.</p>
+</div>
+<div id="ref-Bateson2006_cues_being">
+<p>Bateson, Melissa, Daniel Nettle, and Gilbert Roberts. 2006. “Cues of Being Watched Enhance Cooperation in a Real-World Setting.” <em>Biology Letters</em> 2 (3): 412–14. <a href="https://doi.org/10.1098/rsbl.2006.0509">https://doi.org/10.1098/rsbl.2006.0509</a>.</p>
+</div>
+<div id="ref-Brodeur2016_star_wars">
+<p>Brodeur, Abel, Mathias Lé, Marc Sangnier, and Yanos Zylberberg. 2016. “Star Wars: The Empirics Strike Back.” <em>American Economic Journal: Applied Economics</em> 8 (1): 1–32. <a href="https://doi.org/10.1257/app.20150044">https://doi.org/10.1257/app.20150044</a>.</p>
+</div>
+<div id="ref-Camerer2018_evaluating_replicability">
+<p>Camerer, Colin F., Anna Dreber, Felix Holzmeister, Teck-Hua Ho, Jürgen Huber, Magnus Johannesson, Michael Kirchler, et al. 2018. “Evaluating the Replicability of Social Science Experiments in Nature and Science Between 2010 and 2015.” <em>Nature Human Behaviour</em> 2 (9): 637–44. <a href="https://doi.org/10.1038/s41562-018-0399-z">https://doi.org/10.1038/s41562-018-0399-z</a>.</p>
+</div>
+<div id="ref-Carney2010_power_posing">
+<p>Carney, Dana R., Amy J. C. Cuddy, and Andy J. Yap. 2010. “Power Posing: Brief Nonverbal Displays Affect Neuroendocrine Levels and Risk Tolerance.” <em>Psychological Science</em> 21 (10): 1363–8. <a href="https://doi.org/10.1177/0956797610383437">https://doi.org/10.1177/0956797610383437</a>.</p>
+</div>
+<div id="ref-Caruso2013_mere_exposure">
+<p>Caruso, Eugene M., Kathleen D. Vohs, Brittani Baxter, and Adam Waytz. 2013. “Mere Exposure to Money Increases Endorsement of Free-Market Systems and Social Inequality.” <em>Journal of Experimental Psychology. General</em> 142 (2): 301–6. <a href="https://doi.org/10.1037/a0029288">https://doi.org/10.1037/a0029288</a>.</p>
+</div>
+<div id="ref-Christensen2018_manual_best">
+<p>Christensen, Garret. 2018. “Manual of Best Practices in Transparent Social Science Research.” <a href="https://github.com/garretchristensen/BestPracticesManual/blob/master/Manual.pdf">https://github.com/garretchristensen/BestPracticesManual/blob/master/Manual.pdf</a>.</p>
+</div>
+<div id="ref-Coffman2015_preanalysis_plans">
+<p>Coffman, Lucas C., and Muriel Niederle. 2015. “Pre-Analysis Plans Have Limited Upside, Especially Where Replications Are Feasible.” <em>Journal of Economic Perspectives</em> 29 (3): 81–98. <a href="https://doi.org/10.1257/jep.29.3.81">https://doi.org/10.1257/jep.29.3.81</a>.</p>
+</div>
+<div id="ref-Earp2014_out_damned">
+<p>Earp, Brian D., Jim A. C. Everett, Elizabeth N. Madva, and J. Kiley Hamlin. 2014. “Out, Damned Spot: Can the ‘Macbeth Effect’ Be Replicated?” <em>Basic and Applied Social Psychology</em> 36 (1): 91–98. <a href="https://doi.org/10.1080/01973533.2013.856792">https://doi.org/10.1080/01973533.2013.856792</a>.</p>
+</div>
+<div id="ref-Franco2014_publication_bias">
+<p>Franco, Annie, Neil Malhotra, and Gabor Simonovits. 2014. “Publication Bias in the Social Sciences: Unlocking the File Drawer.” <em>Science</em> 345 (6203): 1502–5. <a href="https://doi.org/10.1126/science.1255484">https://doi.org/10.1126/science.1255484</a>.</p>
+</div>
+<div id="ref-Gelman2014_power_calculations">
+<p>Gelman, Andrew, and John Carlin. 2014. “Beyond Power Calculations: Assessing Type S (Sign) and Type M (Magnitude) Errors.” <em>Perspectives on Psychological Science</em> 9 (6): 641–51. <a href="https://doi.org/10.1177/1745691614551642">https://doi.org/10.1177/1745691614551642</a>.</p>
+</div>
+<div id="ref-Gelman2013_garden_forking">
+<p>Gelman, Andrew, and Eric Loken. 2013. “The Garden of Forking Paths: Why Multiple Comparisons Can Be a Problem, Even When There Is No "Fishing Expedition" or "P-Hacking" and the Research Hypothesis Was Posited Ahead of Time.” <a href="http://www.stat.columbia.edu/~gelman/research/unpublished/p_hacking.pdf">http://www.stat.columbia.edu/~gelman/research/unpublished/p_hacking.pdf</a>.</p>
+</div>
+<div id="ref-Gentzkow2014_code_data">
+<p>Gentzkow, Matthew, and Jesse M. Shapiro. 2014. “Code and Data for the Social Sciences: A Practitioner’s Guide.”</p>
+</div>
+<div id="ref-Inzlicht2016_reckoning">
+<p>Inzlicht, Michael. 2016. “Reckoning with the Past.” Michael Inzlicht. February 29, 2016. <a href="http://michaelinzlicht.com/getting-better/2016/2/29/reckoning-with-the-past">http://michaelinzlicht.com/getting-better/2016/2/29/reckoning-with-the-past</a>.</p>
+</div>
+<div id="ref-Ioannidis2017_power_bias">
+<p>Ioannidis, John P. A., T. D. Stanley, and Hristos Doucouliagos. 2017. “The Power of Bias in Economics Research.” <em>The Economic Journal</em> 127 (605): F236–F265. <a href="https://doi.org/10.1111/ecoj.12461">https://doi.org/10.1111/ecoj.12461</a>.</p>
+</div>
+<div id="ref-John2012_measuring_prevalence">
+<p>John, Leslie K., George Loewenstein, and Drazen Prelec. 2012. “Measuring the Prevalence of Questionable Research Practices with Incentives for Truth Telling.” <em>Psychological Science</em> 23 (5): 524–32. <a href="https://doi.org/10.1177/0956797611430953">https://doi.org/10.1177/0956797611430953</a>.</p>
+</div>
+<div id="ref-Kidwell2016_badges_acknowledge">
+<p>Kidwell, Mallory C., Ljiljana B. Lazarević, Erica Baranski, Tom E. Hardwicke, Sarah Piechowski, Lina-Sophia Falkenberg, Curtis Kennett, et al. 2016. “Badges to Acknowledge Open Practices: A Simple, Low-Cost, Effective Method for Increasing Transparency.” <em>PLOS Biology</em> 14 (5): e1002456. <a href="https://doi.org/10.1371/journal.pbio.1002456">https://doi.org/10.1371/journal.pbio.1002456</a>.</p>
+</div>
+<div id="ref-Klein2014_investigating_variation">
+<p>Klein, Richard A., Kate A. Ratliff, Michelangelo Vianello, Reginald B. Adams, Štěpán Bahník, Michael J. Bernstein, Konrad Bocian, et al. 2014. “Investigating Variation in Replicability: A "Many Labs" Replication Project.” <em>Social Psychology</em> 45 (3): 142–52. <a href="https://doi.org/10.1027/1864-9335/a000178">https://doi.org/10.1027/1864-9335/a000178</a>.</p>
+</div>
+<div id="ref-Klein2018_many_labs">
+<p>Klein, Richard A., Michelangelo Vianello, Fred Hasselman, Byron G. Adams, Reginald B. Adams, Sinan Alper, Mark Aveyard, et al. 2018. “Many Labs 2: Investigating Variation in Replicability Across Samples and Settings.” <em>Advances in Methods and Practices in Psychological Science</em> 1 (4): 443–90. <a href="https://doi.org/10.1177/2515245918810225">https://doi.org/10.1177/2515245918810225</a>.</p>
+</div>
+<div id="ref-Munafo2017_manifesto_reproducible">
+<p>Munafò, Marcus R., Brian A. Nosek, Dorothy V. M. Bishop, Katherine S. Button, Christopher D. Chambers, Nathalie Percie du Sert, Uri Simonsohn, Eric-Jan Wagenmakers, Jennifer J. Ware, and John P. A. Ioannidis. 2017. “A Manifesto for Reproducible Science.” <em>Nature Human Behaviour</em> 1 (1): 0021. <a href="https://doi.org/10.1038/s41562-016-0021">https://doi.org/10.1038/s41562-016-0021</a>.</p>
+</div>
+<div id="ref-Northover2017_artificial_surveillance">
+<p>Northover, Stefanie B., William C. Pedersen, Adam B. Cohen, and Paul W. Andrews. 2017. “Artificial Surveillance Cues Do Not Increase Generosity: Two Meta-Analyses.” <em>Evolution and Human Behavior</em> 38 (1): 144–53. <a href="https://doi.org/10.1016/j.evolhumbehav.2016.07.001">https://doi.org/10.1016/j.evolhumbehav.2016.07.001</a>.</p>
+</div>
+<div id="ref-Nuzzo2014_scientific_method">
+<p>Nuzzo, Regina. 2014. “Scientific Method: Statistical Errors.” <em>Nature News</em> 506 (7487): 150. <a href="https://www.nature.com/news/scientific-method-statistical-errors-1.14700">https://www.nature.com/news/scientific-method-statistical-errors-1.14700</a>.</p>
+</div>
+<div id="ref-Popper2005_logic_scientific">
+<p>Popper, Karl. 2005. <em>The Logic of Scientific Discovery</em>. Routledge. <a href="https://www.taylorfrancis.com/books/9781134470020">https://www.taylorfrancis.com/books/9781134470020</a>.</p>
+</div>
+<div id="ref-Ranehill2015_assessing_robustness">
+<p>Ranehill, Eva, Anna Dreber, Magnus Johannesson, Susanne Leiberg, Sunhae Sul, and Roberto A. Weber. 2015. “Assessing the Robustness of Power Posing: No Effect on Hormones and Risk Tolerance in a Large Sample of Men and Women.” <em>Psychological Science</em> 26 (5): 653–56. <a href="https://doi.org/10.1177/0956797614553946">https://doi.org/10.1177/0956797614553946</a>.</p>
+</div>
+<div id="ref-Rohrer2017_probing_birthorder">
+<p>Rohrer, Julia M., Boris Egloff, and Stefan C. Schmukle. 2017. “Probing Birth-Order Effects on Narrow Traits Using Specification-Curve Analysis.” <em>Psychological Science</em> 28 (12): 1821–32. <a href="https://doi.org/10.1177/0956797617723726">https://doi.org/10.1177/0956797617723726</a>.</p>
+</div>
+<div id="ref-Simonsohn2015_specification_curve">
+<p>Simonsohn, Uri, Joseph P. Simmons, and Leif D. Nelson. 2015. “Specification Curve: Descriptive and Inferential Statistics on All Reasonable Specifications.” SSRN Scholarly Paper ID 2694998. Rochester, NY: Social Science Research Network. <a href="https://papers.ssrn.com/abstract=2694998">https://papers.ssrn.com/abstract=2694998</a>.</p>
+</div>
+<div id="ref-Steegen2016_increasing_transparency">
+<p>Steegen, Sara, Francis Tuerlinckx, Andrew Gelman, and Wolf Vanpaemel. 2016. “Increasing Transparency Through a Multiverse Analysis.” <em>Perspectives on Psychological Science</em> 11 (5): 702–12. <a href="https://doi.org/10.1177/1745691616658637">https://doi.org/10.1177/1745691616658637</a>.</p>
+</div>
+<div id="ref-Strack1988_inhibiting_facilitating">
+<p>Strack, Fritz, Leonard L. Martin, and Sabine Stepper. 1988. “Inhibiting and Facilitating Conditions of the Human Smile: A Nonobtrusive Test of the Facial Feedback Hypothesis.” <em>Journal of Personality and Social Psychology</em> 54 (5): 768–77. <a href="https://doi.org/10.1037/0022-3514.54.5.768">https://doi.org/10.1037/0022-3514.54.5.768</a>.</p>
+</div>
+<div id="ref-Wagenmakers2016_registered_replication">
+<p>Wagenmakers, E.-J., T. Beek, L. Dijkhoff, Q. F. Gronau, A. Acosta, R. B. Adams, D. N. Albohn, et al. 2016. “Registered Replication Report: Strack, Martin, &amp; Stepper (1988).” <em>Perspectives on Psychological Science</em> 11 (6): 917–28. <a href="https://doi.org/10.1177/1745691616674458">https://doi.org/10.1177/1745691616674458</a>.</p>
+</div>
+<div id="ref-Wicherts2016_degrees_freedom">
+<p>Wicherts, Jelte M., Coosje L. S. Veldkamp, Hilde E. M. Augusteijn, Marjan Bakker, Robbie C. M. van Aert, and Marcel A. L. M. van Assen. 2016. “Degrees of Freedom in Planning, Running, Analyzing, and Reporting Psychological Studies: A Checklist to Avoid P-Hacking.” <em>Frontiers in Psychology</em> 7. <a href="https://doi.org/10.3389/fpsyg.2016.01832">https://doi.org/10.3389/fpsyg.2016.01832</a>.</p>
+</div>
+<div id="ref-Zhong2006_washing_away">
+<p>Zhong, Chen-Bo, and Katie Liljenquist. 2006. “Washing Away Your Sins: Threatened Morality and Physical Cleansing.” <em>Science</em> 313 (5792): 1451–2. <a href="https://doi.org/10.1126/science.1130726">https://doi.org/10.1126/science.1130726</a>.</p>
+</div>
+</div></section>
+    </div>
+  </div>
+
+  <script src="assets/lib/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
+  <script src="assets/lib/reveal.js-3.3.0.1/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: false,
+        // Display a presentation progress bar
+        progress: true,
+        // Display the page number of the current slide
+        slideNumber: true,
+        // Push each slide change to the browser history
+        history: true,
+        // Vertical centering of slides
+        center: true,
+        // Transition style
+        transition: 'none', // none/fade/slide/convex/concave/zoom
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+
+
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'assets/lib/reveal.js-3.3.0.1/plugin/notes/notes.js', async: true },
+        ]
+      });
+    </script>
+  <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+
+<script>
+  (function() {
+    if (window.jQuery) {
+      Reveal.addEventListener( 'slidechanged', function(event) {  
+        window.jQuery(event.previousSlide).trigger('hidden');
+        window.jQuery(event.currentSlide).trigger('shown');
+      });
+    }
+  })();
+</script>
+
+<div id="hidden" style="display:none;">
+    <div id="header">
+        <div id="header-left"></div>
+        <div id="header-right"></div>
+        <div id="footer-left"></div>
+        <div id="footer-right"></div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.4.0.slim.min.js"></script>
+<script type="text/javascript">
+    // 3. On Reveal.js ready event, copy header/footer <div> into each `.slide-background` <div>
+    var header = $('#header').html();
+    if (window.location.search.match(/print-pdf/gi)) {
+        Reveal.addEventListener('ready', function (event) {
+            $('.slide-background').append(header);
+        });
+    }
+    else {
+        $('div.reveal').append(header);
+    }
+</script>
+
+  </body>
+</html>

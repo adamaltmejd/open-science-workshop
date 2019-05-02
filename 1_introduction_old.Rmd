@@ -2,9 +2,32 @@
 title: "Open Science & Reproducibility"
 author: Adam Altmejd
 date: May 2nd, 2019
-bibliography: "assets/bibliography.bib"
-csl: "assets/chicago-author-date.csl"
+bibliography: assets/bibliography.bib
+csl: assets/chicago-author-date.csl
+output:
+  revealjs::revealjs_presentation:
+    width: 960
+    height: 700
+    theme: white
+    highlight: pygments
+    transition: none
+    self_contained: false
+    lib_dir: "assets/lib"
+    reveal_plugins: ["notes"]
+    reveal_options:
+      controls: false
+      slideNumber: true
+      progress: true
+      center: true
+      showNotes: true
+      pdfSeparateFragments: false
+      pdfMaxPagesPerSlide: 1
+    css: "assets/style.css"
+    includes:
+      after_body: "assets/after_body.html"
 ---
+
+#
 
 ```{r setup,echo=FALSE,include=FALSE,cache=FALSE}
 library(rmarkdown)
@@ -16,26 +39,17 @@ library(RColorBrewer)
 opts_chunk$set(cache.path = "assets/cache", fig.path = "assets/img/knitr_")
 ```
 
-# Open Science & Reproducibility
-
-May 2nd, 2019
-
-Adam Altmejd
-
-<adam@altmejd.se>
-
-===1===
-
 1. The replication crisis
 2. The problem
 3. What to do about it
 
+<!-- ===================== -->
+<!--         PART 1        -->
+<!-- ===================== -->
 
-===1===
+# Part 1<br /> --- <br />The Replication Crisis
 
-## Part 1<br>---<br>The Replication Crisis
-
-===1===
+##
 
 <p class="stretch"><img src="assets/img/carney2010.png"></p>
 <footer>Original: @Carney2010_power_posing. Replication: @Ranehill2015_assessing_robustness.</footer>
@@ -46,7 +60,7 @@ i.e. having a chemical response that makes you  more powerful. While the
 increased feeling of power does reproduce, the hormonal response does not.
 </aside>
 
-===1===
+##
 
 <p class="stretch"><img alt="Eyes & Generosity" src="assets/img/bateson2006.png"></p>
 <footer>Original: @Bateson2006_cues_being. Replication: @Northover2017_artificial_surveillance.</footer>
@@ -57,7 +71,7 @@ the eyes increases honest behavior. Weeks with eyes had money closer to the
 expected amount if everyone paid for themselves.
 </aside>
 
-===1===
+##
 
 <p class="stretch"><img alt="Currency Priming" src="assets/img/caruso2013.png"></p>
 <footer>Original: @Caruso2013_mere_exposure. Replication: @Klein2014_investigating_variation.</footer>
@@ -67,7 +81,7 @@ saw the questions on a computer screen where the background image showed a dolla
 bill. They more strungly justified the current social system.
 </aside>
 
-===1===
+##
 
 <p class="stretch"><img alt="Macbeth" src="assets/img/zhong2006.png"></p>
 <footer>Original: @Zhong2006_washing_away. Replication: @Earp2014_out_damned.</footer>
@@ -78,7 +92,7 @@ person. They then answered questions about how much they wanted different
 products, among them cleaning products.
 </aside>
 
-===1===
+##
 
 <p class="stretch"><img alt="Pen+Smile" src="assets/img/strack1988.png"></p>
 <footer>Original: @Strack1988_inhibiting_facilitating. Replication: @Wagenmakers2016_registered_replication.</footer>
@@ -90,9 +104,7 @@ a smile-like position. Afterwards subjects rated how fun they thought the movie
 was. Pen-in-teeth subjects thought the movie was funnier.
 </aside>
 
-===1===
-
-### Science/Nature Replications
+## Science/Nature Replications
 
 <p class="stretch"><img alt="SSRP" src="assets/img/ssrp_descriptions.png"></p>
 <footer>@Camerer2018_evaluating_replicability</footer>
@@ -109,9 +121,7 @@ Results from replication projects:<br>
 - Registered Replication Reports ?/?
 </aside>
 
-===1===
-
-### Replication Heterogeneity
+## Replication Heterogeneity
 
 <p class="stretch"><img alt="ML2" src="assets/img/ml2.png"></p>
 <footer>@Klein2018_many_labs</footer>
@@ -122,9 +132,9 @@ but most effects either replicate or not. No matter the country or other (unobse
 lab-specific variation. Grey triangle shows WIERD sample, empty triangle less WIERD.
 </aside>
 
-===1===
+## Why Should we Care?
 
-### Why Should we Care?
+##
 
 <div style="text-align: left;">For science:</div>
 
@@ -137,9 +147,7 @@ lab-specific variation. Grey triangle shows WIERD sample, empty triangle less WI
 <p class="stretch">&nbsp;</p>
 <footer>@Popper2005_logic_scientific, @Inzlicht2016_reckoning</footer>
 
-===1===
-
-### Impact
+## Impact
 
 <p class="stretch"><img alt="ML2" src="assets/img/wakefield1998.png"></p>
 <aside class="notes">
@@ -150,9 +158,7 @@ cause to not vaccinate. While it is a case of grave scientific misconduct,
 its publication might have been avoided in an "open science" research culture.
 </aside>
 
-===1===
-
-### The Goal
+## The Goal
 
 <p><span class="fragment">Produce <b>reproducibile</b> research that can be <i>replicated easily</i>.</span></p><br>
 <ul class="fragment">
@@ -161,31 +167,28 @@ its publication might have been avoided in an "open science" research culture.
 <li><b>Conceptual Replication</b>: external validity</li>
 </ul>
 
-===1===
-
-### Discussion
+## Discussion
 
 Is there a replication crisis for Sociology?
 
-===1===
+<!-- ===================== -->
+<!--         PART 2        -->
+<!-- ===================== -->
 
-## Part 2<br /> --- <br />The Problem
+# Part 2<br /> --- <br />The Problem
 
-===1===
+##
 
 1. **Publication Bias**
 2. **Forking (p-hacking)**
 3. **Low Statistical Power**
 4. **Scientific Misconduct**
 
-===1===
-
-<p class="stretch"><img alt="Munafo 2017" src="assets/img/munafo2017.jpg"></p>
+##
+<p class="stretch"><img alt="ML2" src="assets/img/munafo2017.jpg"></p>
 <footer>@Munafo2017_manifesto_reproducible</footer>
 
-===1===
-
-### Publication Bias
+## Publication Bias
 
 <p><i>Published research is not representative.</i></p>
 <ul class="fragment">
@@ -193,11 +196,11 @@ Is there a replication crisis for Sociology?
 <li>Incentive to p-hack</li>
 </ul>
 
-===1===
+## The File Drawer
 
-### The File Drawer
+<p class="stretch">
 
-```{r franco_plot, include=FALSE}
+```{r franco_plot, echo=FALSE}
 dt <- data.frame(
   Evidence = c("Null Results", "Null Results", "Null Results", "Null Results",
                "Mixed Results", "Mixed Results", "Mixed Results", "Mixed Results",
@@ -222,7 +225,8 @@ g <- ggplot(data=dt, aes(x = factor(Evidence, levels = c("Null Results", "Mixed 
   scale_fill_brewer(palette="Set3")
 print(g)
 ```
-<p class="stretch"><img alt="Franco 2014" src="assets/img/knitr_franco_plot-1.png"></p>
+
+</p>
 <footer>@Franco2014_publication_bias</footer>
 <aside class="notes" data-markdown>
 Paper analyzes 200 experiments in Social Sciences (mainly Pol Sci, Psych and Soc).
@@ -231,25 +235,21 @@ peer reviewed, done by same analytics firm, requires power calculation. Likely
 lower bound of all research.
 </aside>
 
-===1===
+## Forking, P-hacking, Fishing, Researcher Degrees of Freedom
 
-### Forking, P-hacking, Fishing, Researcher Degrees of Freedom
-
-===1===
+##
 
 <p class="stretch"><img alt="xkcd comic part 1" src="assets/img/xkcd_1.png"></p>
 
-===1===
+##
 
 <p class="stretch"><img alt="xkcd comic part 2" src="assets/img/xkcd_2.png"></p>
 
-===1===
+##
 
 <p class="stretch"><img alt="xkcd comic part 3" src="assets/img/xkcd_3.png"></p>
 
-===1===
-
-### P-Hacking in Economics
+## P-Hacking in Economics
 
 <p class="stretch"><img alt="ML2" src="assets/img/brodeur2016.png"></p>
 <footer>Papers in Economics, @Brodeur2016_star_wars</footer>
@@ -260,25 +260,19 @@ Publication bias is downward-slope over whole distribution.
 "Eye-catchers" refers to the use of stars to make significant results salient.
 </aside>
 
-===1===
+## Forking Paths
 
-### Forking Paths
-
-<p class="fragment">Even with a pre-stated hypothesis and no <i>conscious</i> p-hacking, each design
+<p class="fragment">Even with a pre-stated hypothesis and no *concious* p-hacking, each design
 choice is a fork in the path towards a finished paper.</p>
-<p class="fragment">If observed significance influences these choices, <br><b>p-values are meaningless</b>.</p>
+<p class="fragment">If observed significance influences these choices, <br>**p-values are meaningless**.</p>
 <footer>@Gelman2013_garden_forking</footer>
 
-===1===
-
-### Forking Checklist
+## Forking Checklist
 
 <p class="stretch"><img alt="ML2" src="assets/img/wicherts2016.png"></p>
 <footer>@Wicherts2016_degrees_freedom</footer>
 
-===1===
-
-### What is a P-value?
+## What is a P-value?
 
 *Under the null*, how **likely** is the observed data
 
@@ -296,8 +290,7 @@ Remembering that p-values don't validate hypothesis might make it easier to
 stop relying so much on them.
 </aside>
 
-===1===
-
+##
 <p class="stretch"><img alt="ML2" src="assets/img/nuzzo2014.png"></p>
 <footer>@Nuzzo2014_scientific_method</footer>
 <aside class="notes">
@@ -310,9 +303,7 @@ because the hypothesis was really unlikely to start with, this just changes our
 prior of 10% to a posterior of 11%.
 </aside>
 
-===1===
-
-### Low Statistical Power
+## Low Statistical Power
 
 * Even with registries, subgroups can get small
 * Empirical Economics: median power 18%
@@ -332,14 +323,12 @@ literatures are exaggerated; typically, by a factor of two and with
 one‐third inflated by a factor of four or more."
 </aside>
 
-===1===
-
-### Scientific Misconduct
+## Scientific Misconduct
 
 * Uncommon, but not as rare as you think
 * Hard to fix, need strong norms
 
-===1===
+##
 
 <p class="stretch"><img alt="ML2" src="assets/img/john2012.png"></p>
 <footer>@John2012_measuring_prevalence</footer>
@@ -350,32 +339,28 @@ prevalence in the population and (c) their belief about others likelihood
 to admit.
 </aside>
 
-===1===
-
-### Discussion
+## Discussion
 
 What are the main problems in Sociology?
 
-===1===
+<!-- ===================== -->
+<!--         PART 3        -->
+<!-- ===================== -->
 
 # Part 3<br /> --- <br />What can you do?
 
-===1===
+## Study Registration
 
-### Study Registration
-
-<p>Public demonstration of precedence</p>
-<p><b>Pre</b>-registration --- <em>Before</em> accessing data</p>
+<p class="fragment">Public demonstration of precedence</p>
+<div class="fragment"><p>**Pre**-registration --- *Before* accessing data</p>
 <ul>
 <li>combats file-drawer</li>
 <li>protects against forking</li>
-<li>fends off reviewer no. 2</li>
+<li>fends off reviewer #2</li>
 </ul>
 </div>
 
-===1===
-
-### OSF Registration
+## OSF Registration
 
 <p><img alt="ML2" src="assets/img/registration.png"></p>
 
@@ -387,9 +372,7 @@ OSF registration is great. Much freer than others, not as specific to
 experimental work. Can include analysis plan, code files, pilot data, etc.
 </aside>
 
-===1===
-
-### Pre-Analysis Plan
+## Pre-Analysis Plan
 
 *Pick a path through the garden and stick to it.*
 
@@ -411,9 +394,7 @@ But can also be useful to include motivation, literature review etc to claim a
 position in the research literature and explain all the research design choices.
 </aside>
 
-===1===
-
-### Register a Pre-Analysis Plan
+## Register a Pre-Analysis Plan
 
 * Ideal: registration *outputs final results*
 * **Very hard** with empirical research
@@ -433,30 +414,22 @@ In Sweden, Statistics Sweden could provide the lock box as they deliver all data
 Just tell them you only want them to share x% with you.
 </aside>
 
-===1===
-
-### PAP Example 1
+## PAP Example 1
 
 <p class="stretch"><img src="assets/img/pap1.png"></p>
 <footer>@Altmejd2017_pre_analysis</footer>
 
-===1===
-
-### PAP Example 2
+## PAP Example 2
 
 <p class="stretch"><img src="assets/img/pap2.png"></p>
 <footer>@Altmejd2017_pre_analysis</footer>
 
-===1===
-
-### PAP Example 3
+## PAP Example 3
 
 <p class="stretch"><img src="assets/img/pap3.png"></p>
 <footer>@Altmejd2017_pre_analysis</footer>
 
-===1===
-
-### Specification Curve
+## Specification Curve
 
 If you cannot *pre*-pick one analysis, study **all**
 
@@ -466,10 +439,8 @@ If you cannot *pre*-pick one analysis, study **all**
 Also known as: multiverse analysis [@Steegen2016_increasing_transparency].
 </aside>
 
-===1===
-
-### Birth Order
-#### Self-Reported Intellect
+## Birth Order
+### Self-Reported Intellect
 
 <p class="stretch"><img src="assets/img/rohrer2017_intellect.png"></p>
 <footer>@Rohrer2017_probing_birthorder</footer>
@@ -479,10 +450,8 @@ with most specifications being significant in the same direction. There also
 doesn't seem to exist any systematic reason for non-significance.
 </aside>
 
-===1===
-
-### Birth Order
-#### Positive Reciprocity
+## Birth Order
+### Positive Reciprocity
 
 <p class="stretch"><img src="assets/img/rohrer2017_reciprocity.png"></p>
 <footer>@Rohrer2017_probing_birthorder</footer>
@@ -494,22 +463,16 @@ with close (but not too close) age difference. Effect is only visible in
 within-family analysis, but what does this even mean in a family of two siblings?
 </aside>
 
-===1===
+## A Reproducibility-Enhancing Research Workflow
 
-### A Reproducibility-Enhancing Research Workflow
-
-===1===
-
-### Data Management
+## Data Management
 
 * Never edit raw input data directly
 * Keep processed data in separate folder
 
 <p class="stretch"><img src="assets/img/folder_structure.png"></p>
 
-===1===
-
-### Reproducible Code
+## Reproducible Code
 
 * *Self-documenting* code: naming, structure, formatting
 * Each code file has separate purpose
@@ -529,9 +492,7 @@ processes raw data on occupational changes, another identifies family connection
 and a third joins the two first.
 </aside>
 
-===1===
-
-### Example
+## Example
 
 ```{r}
 rowmeans <- function(x, y) {
@@ -553,9 +514,7 @@ rowmeans <- function(x, y) {
 }
 ```
 
-===1===
-
-### Version Control
+## Version Control
 
 * *Annotated* history of changes
 * Documents progress in research
@@ -563,9 +522,7 @@ rowmeans <- function(x, y) {
 * Collaborate efficiently, reconcile conflicts
 * Only works with text files, not Word
 
-===1===
-
-### Version Control in Github
+## Version Control in Github
 
 * Git is opensource VCS, hosted by Github
 * One *repository* per project
@@ -588,15 +545,11 @@ data in your git repository. Use the .gitignore file to exclude the raw data if
 needed, or self-host your remote repository on a secure server.
 </aside>
 
-===1===
-
-### Github Desktop
+## Github Desktop
 
 <p class="stretch"><img src="assets/img/github_desktop.png"></p>
 
-===1===
-
-### Data Sharing
+## Data Sharing
 
 * Without data, reproduction is impossible
 * Never compromise privacy
@@ -614,11 +567,9 @@ sure if it actually works) is to store the registry data at SND and allow
 other researchers to analyze it without having access to view the actual data.
 </aside>
 
-===1===
+## Institutional Change
 
-### Institutional Change
-
-#### Journals should:
+### Journals should:
 
 <ul>
 <li>use results-blind review,</li>
@@ -634,26 +585,21 @@ Another example are the Open Science Badges that more and more journals are
 using, and that seem to really work [@Kidwell2016_badges_acknowledge]
 </aside>
 
-===1===
-
-### Discussion
+## Discussion
 
 What methods could you implement in your current project?
 
-===1===
+<!-- ===================== -->
+<!--        THE END        -->
+<!-- ===================== -->
 
-## Readings
+# Readings
 
 * [Code and Data](https://web.stanford.edu/~gentzkow/research/CodeAndData.pdf) [@Gentzkow2014_code_data]
 * [Best Practices Manual](https://github.com/garretchristensen/BestPracticesManual/blob/master/Manual.pdf) [@Christensen2018_manual_best]
 
-===1===
-
-## Thank you!
+# Thank you!
 
 <adam@altmejd.se>
 
-===1===
-
-## References
-<!-- .slide: id="refslide" -->
+# References {#references}

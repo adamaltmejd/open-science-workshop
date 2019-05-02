@@ -29,3 +29,9 @@ backgroundTransition: "none" #none/fade/slide/convex/concave/zoom
 #Add the current slide number to the URL hash so that reloading the
 #page/copying the URL will return you to the same slide
 hash: "true"
+
+# Ensure printout is only one page per slide
+pdfMaxPagesPerSlide: 1
+
+# Do not separate fragments into different slides
+pdfSeparateFragments: "false"

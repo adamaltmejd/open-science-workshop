@@ -383,6 +383,14 @@ Reveal.initialize({
     zoomKey: '$zoomKey$',
   $endif$
 
+  $if(pdfMaxPagesPerSlide)$
+    pdfMaxPagesPerSlide: $pdfMaxPagesPerSlide$,
+  $endif$
+
+  $if(pdfSeparateFragments)$
+    pdfSeparateFragments: $pdfSeparateFragments$,
+  $endif$
+
   $if(mathjax)$
     math: {
       mathjax: '$mathjaxurl$',

@@ -2,8 +2,6 @@
 title: "Open Science & Reproducibility"
 author: Adam Altmejd
 date: May 2nd, 2019
-bibliography: "assets/bibliography.bib"
-csl: "assets/chicago-author-date.csl"
 ---
 
 ```{r setup,echo=FALSE,include=FALSE,cache=FALSE}
@@ -16,87 +14,86 @@ library(RColorBrewer)
 opts_chunk$set(cache.path = "assets/cache", fig.path = "assets/img/knitr_")
 ```
 
-# Open Science & Reproducibility
-
-May 2nd, 2019
-
-Adam Altmejd
-
-<adam@altmejd.se>
-
-===1===
+---
 
 1. The replication crisis
 2. The problem
 3. What to do about it
 
+# Part 1<br>---<br>The Replication Crisis
 
-===1===
+---
 
-## Part 1<br>---<br>The Replication Crisis
+<p class="stretch">![Carney 2010](assets/img/carney2010.png)</p>
 
-===1===
-
-<p class="stretch"><img src="assets/img/carney2010.png"></p>
 <footer>Original: @Carney2010_power_posing. Replication: @Ranehill2015_assessing_robustness.</footer>
-<aside class="notes">
-The power posing study found that taking a power pose does
+
+::: notes
+The **power posing** study found that taking a power pose does
 not only increase self-assessed power, but actually increases testosterone,
 i.e. having a chemical response that makes you  more powerful. While the
 increased feeling of power does reproduce, the hormonal response does not.
-</aside>
+:::
 
-===1===
+---
 
-<p class="stretch"><img alt="Eyes & Generosity" src="assets/img/bateson2006.png"></p>
+<p class="stretch">![Eyes & Generosity](assets/img/bateson2006.png)</p>
+
 <footer>Original: @Bateson2006_cues_being. Replication: @Northover2017_artificial_surveillance.</footer>
-<aside class="notes">
+
+::: notes
 In this study the researchers posted notes of either "watchful eyes" or flowers
 above a cookie jar in the common kitchen, alternating every week. They find that
 the eyes increases honest behavior. Weeks with eyes had money closer to the
 expected amount if everyone paid for themselves.
-</aside>
+:::
 
-===1===
+---
 
-<p class="stretch"><img alt="Currency Priming" src="assets/img/caruso2013.png"></p>
+<p class="stretch">![Currency Priming](assets/img/caruso2013.png)</p>
+
 <footer>Original: @Caruso2013_mere_exposure. Replication: @Klein2014_investigating_variation.</footer>
-<aside class="notes">
+
+::: notes
 In this study subjects answered questions about social justice, treatment group
 saw the questions on a computer screen where the background image showed a dollar
 bill. They more strungly justified the current social system.
-</aside>
+:::
 
-===1===
+---
 
-<p class="stretch"><img alt="Macbeth" src="assets/img/zhong2006.png"></p>
+<p class="stretch">![Macbeth](assets/img/zhong2006.png)</p>
+
 <footer>Original: @Zhong2006_washing_away. Replication: @Earp2014_out_damned.</footer>
-<aside class="notes">
+
+::: notes
 The "Macbeth" study. Here subjects first transcribed a story. Treated subjects
 transcribed an immoral (sabotaging for a co-worker) story, written in first
 person. They then answered questions about how much they wanted different
 products, among them cleaning products.
-</aside>
+:::
 
-===1===
+---
 
-<p class="stretch"><img alt="Pen+Smile" src="assets/img/strack1988.png"></p>
+<p class="stretch">![Pen+Smile](assets/img/strack1988.png)</p>
+
 <footer>Original: @Strack1988_inhibiting_facilitating. Replication: @Wagenmakers2016_registered_replication.</footer>
-<aside class="notes">
+
+::: notes
 In this study, subjects had to watch a funny movie with a pen in their mouth.
 Treated subjects had to hold the pen with their teeth, while control subjects
 helt it with their lips. Holding the pen with your teeth forces the mouth into
 a smile-like position. Afterwards subjects rated how fun they thought the movie
 was. Pen-in-teeth subjects thought the movie was funnier.
-</aside>
+:::
 
-===1===
+## Science/Nature Replications
 
-### Science/Nature Replications
+<p class="stretch">![SSRP](assets/img/ssrp_descriptions.png)</p>
 
-<p class="stretch"><img alt="SSRP" src="assets/img/ssrp_descriptions.png"></p>
 <footer>@Camerer2018_evaluating_replicability</footer>
-<aside class="notes">
+
+::: notes
 Results from replication projects:<br>
 - 36/100 [RPP](https://osf.io/ezcuj/)<br>
 - 11/18 [EERP](https://osf.io/bzm54/)<br>
@@ -107,95 +104,82 @@ Results from replication projects:<br>
 - [ML4](https://osf.io/8ccnw/): Replicating "Terror Management Theory" in different settings<br>
 - [ML5](https://osf.io/7a6rd/): investigates pre data collection peer review of 10 "non-endorsed" RPP protocols, testing direct replication vs "improved protocol"<br>
 - Registered Replication Reports ?/?
-</aside>
+:::
 
-===1===
+## Replication Heterogeneity
 
-### Replication Heterogeneity
+<p class="stretch">![ML2](assets/img/ml2.png)</p>
 
-<p class="stretch"><img alt="ML2" src="assets/img/ml2.png"></p>
 <footer>@Klein2018_many_labs</footer>
-<aside class="notes" data-markdown>
+
+::: notes
 Totally 125 labs participated with 15k subjects, 28 effects (all expert reviewed).
 In plot, small bars indicate results from each lab. Main takeaway: variation exists,
 but most effects either replicate or not. No matter the country or other (unobserved?)
 lab-specific variation. Grey triangle shows WIERD sample, empty triangle less WIERD.
-</aside>
+:::
 
-===1===
+## Why Should we Care?
 
-### Why Should we Care?
-
-<div style="text-align: left;">For science:</div>
+For science:
 
 > "non-reproducible single occurrences are of no significance to science"
 
-<div style="text-align: left;">For our careers:</div>
+For our careers:
 
 > "I have spent nearly a decade working on the concept of ego depletion [...] The problem is that ego depletion might not even be a thing."
 
 <p class="stretch">&nbsp;</p>
+
 <footer>@Popper2005_logic_scientific, @Inzlicht2016_reckoning</footer>
 
-===1===
+## Impact
 
-### Impact
+<p class="stretch">![Wakefield 1998](assets/img/wakefield1998.png)</p>
 
-<p class="stretch"><img alt="Wakefield 1998" src="assets/img/wakefield1998.png"></p>
-<aside class="notes">
+::: notes
 The vaccines cause autism-paper is the absolute worst case of when bad science
 has horrible consequences. Having been disproven twenty years ago, and
 retracted for at least a decade, it is still widely shared and cited as a
 cause to not vaccinate. While it is a case of grave scientific misconduct,
 its publication might have been avoided in an "open science" research culture.
-</aside>
+:::
 
-===1===
+## The Goal
 
-### The Goal
+Produce **reproducibile** research that can be *replicated easily*.
 
-<p><span class="fragment">Produce <b>reproducibile</b> research that can be <i>replicated easily</i>.</span></p><br>
-<ul class="fragment">
-<li><b>Reproduction</b>: Re-analyze with push of a button.</li>
-<li><b>Direct Replication</b>: internal validity</li>
-<li><b>Conceptual Replication</b>: external validity</li>
-</ul>
+- **Reproduction**: Re-analyze with push of a button.
+- **Direct Replication**: internal validity
+- **Conceptual Replication**: external validity
 
-===1===
+## Discussion
 
-### Discussion
+Is there a replication crisis in your field?
 
-Is there a replication crisis for Sociology?
+# Part 2<br /> --- <br />The Problem
 
-===1===
-
-## Part 2<br /> --- <br />The Problem
-
-===1===
+---
 
 1. **Publication Bias**
 2. **Forking (p-hacking)**
 3. **Low Statistical Power**
 4. **Scientific Misconduct**
 
-===1===
+---
 
-<p class="stretch"><img alt="Munafo 2017" src="assets/img/munafo2017.jpg"></p>
+<p class="stretch">![Munafo 2017](assets/img/munafo2017.jpg)</p>
+
 <footer>@Munafo2017_manifesto_reproducible</footer>
 
-===1===
+## Publication Bias
 
-### Publication Bias
+*Published research is not representative.*
 
-<p><i>Published research is not representative.</i></p>
-<ul class="fragment">
-<li>Hard to assess knowledge</li>
-<li>Incentive to p-hack</li>
-</ul>
+- Hard to assess knowledge
+- Incentive to p-hack
 
-===1===
-
-### The File Drawer
+## The File Drawer
 
 ```{r franco_plot, include=FALSE}
 dt <- data.frame(
@@ -222,69 +206,68 @@ g <- ggplot(data=dt, aes(x = factor(Evidence, levels = c("Null Results", "Mixed 
   scale_fill_brewer(palette="Set3")
 print(g)
 ```
-<p class="stretch"><img alt="Franco 2014" src="assets/img/knitr_franco_plot-1.png"></p>
+
+<p class="stretch">![Franco 2014](assets/img/knitr_franco_plot-1.png)</p>
+
 <footer>@Franco2014_publication_bias</footer>
-<aside class="notes" data-markdown>
+
+::: notes
 Paper analyzes 200 experiments in Social Sciences (mainly Pol Sci, Psych and Soc).
 Uses TESS (Time-Sharing Experiments in the Social Sciences).  All experiments
 peer reviewed, done by same analytics firm, requires power calculation. Likely
 lower bound of all research.
-</aside>
+:::
 
-===1===
+## Forking, P-hacking, Fishing, Researcher Degrees of Freedom
 
-### Forking, P-hacking, Fishing, Researcher Degrees of Freedom
+---
 
-===1===
+<p class="stretch">![xkcd comic part 1](assets/img/xkcd_1.png)</p>
 
-<p class="stretch"><img alt="xkcd comic part 1" src="assets/img/xkcd_1.png"></p>
+---
 
-===1===
+<p class="stretch">![xkcd comic part 2](assets/img/xkcd_2.png)</p>
 
-<p class="stretch"><img alt="xkcd comic part 2" src="assets/img/xkcd_2.png"></p>
+---
 
-===1===
+<p class="stretch">![xkcd comic part 3](assets/img/xkcd_3.png)</p>
 
-<p class="stretch"><img alt="xkcd comic part 3" src="assets/img/xkcd_3.png"></p>
 
-===1===
+## P-Hacking in Economics
 
-### P-Hacking in Economics
+<p class="stretch">![Brodeur 2016](assets/img/brodeur2016.png)</p>
 
-<p class="stretch"><img alt="ML2" src="assets/img/brodeur2016.png"></p>
 <footer>Papers in Economics, @Brodeur2016_star_wars</footer>
-<aside class="notes" data-markdown>
+
+::: notes
 Plots show distribution of **z-stats** in AER, QJE, JPE. Total sample 50k tests.
 Camel shape of missing p-values is p-hacking to get p-stats just below 0.05.
 Publication bias is downward-slope over whole distribution.
 "Eye-catchers" refers to the use of stars to make significant results salient.
-</aside>
+:::
 
-===1===
+## Forking Paths
 
-### Forking Paths
+Even with a pre-stated hypothesis and no *conscious* p-hacking, each design
+choice is a fork in the path towards a finished paper.
 
-<p class="fragment">Even with a pre-stated hypothesis and no <i>conscious</i> p-hacking, each design
-choice is a fork in the path towards a finished paper.</p>
-<p class="fragment">If observed significance influences these choices, <br><b>p-values are meaningless</b>.</p>
+If observed significance influences these choices, **p-values are meaningless**.
+
 <footer>@Gelman2013_garden_forking</footer>
 
-===1===
+## Forking Checklist
 
-### Forking Checklist
+<p class="stretch">![Wicherts 2016](assets/img/wicherts2016.png)</p>
 
-<p class="stretch"><img alt="ML2" src="assets/img/wicherts2016.png"></p>
 <footer>@Wicherts2016_degrees_freedom</footer>
 
-===1===
-
-### What is a P-value?
+## What is a P-value?
 
 *Under the null*, how **likely** is the observed data
 
 Says **nothing** about assumptions+hypothesis validity
 
-<aside class="notes">
+::: notes
 Imagine you have a coin and want to determine if its fair or not. We set a=0.05.
 This gives us a rejection region (with a=0.05) at 0,1,9,10 heads in 10 flips.
 Seeing 9 heads in a trial has a p-value of ~0.02. We reject the null because
@@ -294,13 +277,14 @@ about the actual fairness of the coin. If the coin is actually not fair, the
 likelyhood we would observe the data depends on its bias.<br>
 Remembering that p-values don't validate hypothesis might make it easier to
 stop relying so much on them.
-</aside>
+:::
 
-===1===
+---
 
-<p class="stretch"><img alt="ML2" src="assets/img/nuzzo2014.png"></p>
+<p class="stretch">![Nuzzo 2014](assets/img/nuzzo2014.png)</p>
 <footer>@Nuzzo2014_scientific_method</footer>
-<aside class="notes">
+
+::: notes
 Depending on original odds "likelihood to observe effect" can vary greatly.
 Figure can be understood as follows: p-value gives likelihood to observe data
 under null, but is the effect (alternative hypothesis) true? We study a
@@ -308,19 +292,19 @@ hypothesis thats really unlikely (long-shot) and observe some data. The data
 is so extreme that it would be unlikely under the null, so we reject H0. But
 because the hypothesis was really unlikely to start with, this just changes our
 prior of 10% to a posterior of 11%.
-</aside>
+:::
 
-===1===
+## Low Statistical Power
 
-### Low Statistical Power
+- Even with registries, subgroups can get small
+- Empirical Economics: median power 18%
+- Type-M/S errors:
 
-* Even with registries, subgroups can get small
-* Empirical Economics: median power 18%
-* Type-M/S errors:
-<p class="stretch"><img alt="ML2" src="assets/img/gelman2014.png"></p>
+<p class="stretch">![Gelman 2014](assets/img/gelman2014.png)</p>
+
 <footer>@Gelman2014_power_calculations, @Ioannidis2017_power_bias</footer>
 
-<aside class="notes">
+::: notes
 @Ioannidis2017_power_bias
 "We survey 159 empirical economics literatures that draw upon 64,076 estimates
 of economic parameters reported in more than 6,700 empirical studies. Half
@@ -330,66 +314,54 @@ those reported results that are adequately powered (power ≥ 80%) reveals
 that nearly 80% of the reported effects in these empirical economics
 literatures are exaggerated; typically, by a factor of two and with
 one‐third inflated by a factor of four or more."
-</aside>
+:::
 
-===1===
+## Scientific Misconduct
 
-### Scientific Misconduct
+- Uncommon, but not as rare as you think
+- Hard to fix, need strong norms
 
-* Uncommon, but not as rare as you think
-* Hard to fix, need strong norms
+---
 
-===1===
-
-<p class="stretch"><img alt="ML2" src="assets/img/john2012.png"></p>
+<p class="stretch">![John 2012](assets/img/john2012.png)</p>
 <footer>@John2012_measuring_prevalence</footer>
-<aside class="notes">
+
+::: notes
 Bayesian truth serum incentives for truthtelling. Each participant is surveyed
 bout (a) their own questionable research practice (QRP), (b) their percieved
 prevalence in the population and (c) their belief about others likelihood
 to admit.
-</aside>
+:::
 
-===1===
+## Discussion
 
-### Discussion
+What are the main problems for your field?
 
-What are the main problems in Sociology?
+# Part 3 <br>---</br> What can you do?
 
-===1===
+## Study Registration
 
-# Part 3<br /> --- <br />What can you do?
+Public demonstration of precedence
 
-===1===
+**Pre**-registration --- *Before* accessing data
 
-### Study Registration
+- combats file-drawer
+- protects against forking
+- fends off reviewer no. 2
 
-<p>Public demonstration of precedence</p>
-<p><b>Pre</b>-registration --- <em>Before</em> accessing data</p>
-<ul>
-<li>combats file-drawer</li>
-<li>protects against forking</li>
-<li>fends off reviewer no. 2</li>
-</ul>
-</div>
+## OSF Registration
 
-===1===
+<p>![OSF Registration](assets/img/registration.png)</p>
 
-### OSF Registration
+- [OSF.io](http://osf.io) registration by *freezing* a project.
+- Or: [AEA RCT Registry](https://www.socialscienceregistry.org/), [AsPredicted](https://aspredicted.org/), [EGAP Registry](http://egap.org/content/registration)
 
-<p><img alt="ML2" src="assets/img/registration.png"></p>
-
-* [OSF.io](http://osf.io) registration by *freezing* a project.
-* Or: [AEA RCT Registry](https://www.socialscienceregistry.org/), [AsPredicted](https://aspredicted.org/), [EGAP Registry](http://egap.org/content/registration)
-
-<aside class="notes">
+::: notes
 OSF registration is great. Much freer than others, not as specific to
 experimental work. Can include analysis plan, code files, pilot data, etc.
-</aside>
+:::
 
-===1===
-
-### Pre-Analysis Plan
+## Pre-Analysis Plan
 
 *Pick a path through the garden and stick to it.*
 
@@ -397,9 +369,9 @@ Focus: sample selection, estimation
 
 Also: motivation, literature
 
-Could be: your paper before results <br>(maybe extension of grant proposal)
+Could be: your paper before results (maybe extension of grant proposal)
 
-<aside class="notes">
+::: notes
 Like @Coffman2015_preanalysis_plans argue, pre-analysis plans are even more
 important in empirical work, where replication is often hard or impossible. If
 all the data is already used, we can't just generate more by running another
@@ -409,18 +381,16 @@ Most important to tie hands with regards to forking. Pick one path
 in the garden and stick to it. See check list.
 But can also be useful to include motivation, literature review etc to claim a
 position in the research literature and explain all the research design choices.
-</aside>
+:::
 
-===1===
+## Register a Pre-Analysis Plan
 
-### Register a Pre-Analysis Plan
+- Ideal: registration *outputs final results*
+- **Very hard** with empirical research
+- Instead, be as detailed as possible,
+- consider data *lock-box* and two registrations
 
-* Ideal: registration *outputs final results*
-* **Very hard** with empirical research
-* Instead, be as detailed as possible,
-* consider data *lock-box* and two registrations
-
-<aside class="notes">
+::: notes
 With empirical work it is almost impossible to figure everything out before
 looking at the data. Instead it can be really useful to adopt a lock-box approach.
 (1) Write a pre-analysis plan with everything you know and register it. Then take
@@ -428,110 +398,99 @@ half (if possible) or as little as a few observations if you are worried about p
 out of the lock box. Do the analysis, fix all the unexpected errors,
 do as much data exploration as you want. Then register another version of the
 PAP (at this point it might almost be a paper). Only then do you use the rest
-of the data.<br>
+of the data.
+
 In Sweden, Statistics Sweden could provide the lock box as they deliver all data.
 Just tell them you only want them to share x% with you.
-</aside>
+:::
 
-===1===
+## PAP Example 1
 
-### PAP Example 1
+<p class="stretch">![PAP Example 1](assets/img/pap1.png)</p>
 
-<p class="stretch"><img src="assets/img/pap1.png"></p>
 <footer>@Altmejd2017_pre_analysis</footer>
 
-===1===
+## PAP Example 2
 
-### PAP Example 2
-
-<p class="stretch"><img src="assets/img/pap2.png"></p>
+<p class="stretch">![PAP Example 2](assets/img/pap2.png)</p>
 <footer>@Altmejd2017_pre_analysis</footer>
 
-===1===
+## PAP Example 3
 
-### PAP Example 3
-
-<p class="stretch"><img src="assets/img/pap3.png"></p>
+<p class="stretch">![PAP Example 2](assets/img/pap3.png)</p>
 <footer>@Altmejd2017_pre_analysis</footer>
 
-===1===
-
-### Specification Curve
+## Specification Curve
 
 If you cannot *pre*-pick one analysis, study **all**
 
 <footer>@Simonsohn2015_specification_curve</footer>
 
-<aside class="notes">
-Also known as: multiverse analysis [@Steegen2016_increasing_transparency].
-</aside>
+::: notes
+Also known as multiverse analysis [@Steegen2016_increasing_transparency].
+:::
 
-===1===
+## Birth Order
 
-### Birth Order
-#### Self-Reported Intellect
+### Self-Reported Intellect
 
-<p class="stretch"><img src="assets/img/rohrer2017_intellect.png"></p>
+<p class="stretch">![Specification curve of birth order and self-reported intellect](assets/img/rohrer2017_intellect.png)</p>
+
 <footer>@Rohrer2017_probing_birthorder</footer>
-<aside class="notes" data-markdown>
+
+::: notes
 Birth order effects on self-reported intellect. Here we see a clear positive effect,
 with most specifications being significant in the same direction. There also
 doesn't seem to exist any systematic reason for non-significance.
-</aside>
+:::
 
-===1===
+## Birth Order
 
-### Birth Order
-#### Positive Reciprocity
+### Positive Reciprocity
 
-<p class="stretch"><img src="assets/img/rohrer2017_reciprocity.png"></p>
+<p class="stretch">![Specification curve of birth order and positive reciprocity](assets/img/rohrer2017_reciprocity.png)</p>
+
 <footer>@Rohrer2017_probing_birthorder</footer>
-<aside class="notes" data-markdown>
+
+::: notes
 Birth order effects on positive reciprocity. Here on the other hand there does
 not seem to exist any relationship. Effects are distrubted in both directions. Most
 significant effects are negative, but not many are significant. Only sibships of 2,
 with close (but not too close) age difference. Effect is only visible in
 within-family analysis, but what does this even mean in a family of two siblings?
-</aside>
+:::
 
-===1===
+## A Reproducibility-Enhancing Research Workflow
 
-### A Reproducibility-Enhancing Research Workflow
+## Data Management
 
-===1===
+- Never edit raw input data directly
+- Keep processed data in separate folder
 
-### Data Management
+<p class="stretch">![](assets/img/folder_structure.png)</p>
 
-* Never edit raw input data directly
-* Keep processed data in separate folder
+## Reproducible Code
 
-<p class="stretch"><img src="assets/img/folder_structure.png"></p>
+- *Self-documenting* code: naming, structure, formatting
+- Each code file has separate purpose
+- Use comments when needed
+- Use functions/programs, never write same code twice
+- Literate programming in *RMarkdown*
 
-===1===
-
-### Reproducible Code
-
-* *Self-documenting* code: naming, structure, formatting
-* Each code file has separate purpose
-* Use comments when needed
-* Use functions/programs, never write same code twice
-* Literate programming in *RMarkdown*
-
-<aside class="notes">
+::: notes
 Comments should often not be needed if code speaks for itself. Don't worry about
 long variable names. Prioritize legibility over smaller files or efficient code,
 to the extent possible. Ensure that someone else can understand what your code
-does.<br>
+does.
+
 File naming and folder structure is super important. Always use documentation
 headers at the top of code files that explain what the file does. Try to divide
 separate parts of data processing/analysis into different files. Maybe one file
 processes raw data on occupational changes, another identifies family connections,
 and a third joins the two first.
-</aside>
+:::
 
-===1===
-
-### Example
+## Example
 
 ```{r}
 rowmeans <- function(x, y) {
@@ -553,28 +512,24 @@ rowmeans <- function(x, y) {
 }
 ```
 
-===1===
+## Version Control
 
-### Version Control
+- *Annotated* history of changes
+- Documents progress in research
+- Keep track of latest version
+- Collaborate efficiently, reconcile conflicts
+- Only works with text files, not Word
 
-* *Annotated* history of changes
-* Documents progress in research
-* Keep track of latest version
-* Collaborate efficiently, reconcile conflicts
-* Only works with text files, not Word
+## Version Control in Github
 
-===1===
-
-### Version Control in Github
-
-* Git is opensource VCS, hosted by Github
-* One *repository* per project
-* Changes tracked through *commits*
-* Link to OSF, freeze for registration
+- Git is opensource VCS, hosted by Github
+- One *repository* per project
+- Changes tracked through *commits*
+- Link to OSF, freeze for registration
 
 <footer>Tip: Register for [Github Education](https://education.github.com)</footer>
 
-<aside class="notes">
+::: notes
 Git is the open source software that Github uses. One does not need github really,
 but it is very useful for beginners, especially together with their Github Desktop
 app and when collaborating with others as Github can host your repository.<br>
@@ -586,24 +541,21 @@ a specific purpose, e.g. "accounted for inflation in income measures" or
 Remember that when working with sensitive data, you most likely cannot store your
 data in your git repository. Use the .gitignore file to exclude the raw data if
 needed, or self-host your remote repository on a secure server.
-</aside>
+:::
 
-===1===
+## Github Desktop
 
-### Github Desktop
+<p class="stretch">![](assets/img/github_desktop.png)</p>
 
-<p class="stretch"><img src="assets/img/github_desktop.png"></p>
+## Data Sharing
 
-===1===
+- Without data, reproduction is impossible
+- Never compromise privacy
+- Alternatives: retrieval protocol, data store
 
-### Data Sharing
-
-* Without data, reproduction is impossible
-* Never compromise privacy
-* Alternatives: retrieval protocol, data store
 <footer>Swedish registry data: [Swedish National Data Service, SND](https://snd.gu.se/en)</footer>
 
-<aside class="notes">
+::: notes
 For someone to reproduce our research they need access to the data. But we often
 cannot share data for e.g. ethical reasons. Working with registry data we have
 two options. We can share a detailed specification of exactly what registries we
@@ -612,48 +564,33 @@ can submit their own ethics application, buy the data from SCB and redo the stud
 This would be really expensive though. Instead, a better option (although I'm not
 sure if it actually works) is to store the registry data at SND and allow
 other researchers to analyze it without having access to view the actual data.
-</aside>
+:::
 
-===1===
+## Institutional Change
 
-### Institutional Change
+- use results-blind review,
+- require study registration,
+- require data publication,
+- require reproducible code.
 
-#### Journals should:
-
-<ul>
-<li>use results-blind review,</li>
-<li>require study registration,</li>
-<li>require data publication,</li>
-<li>require reproducible code.</li>
-<ul>
-
-<aside class="notes" data-markdown>
+::: notes
 Change already well underway, but needs strong advocates. [JDE has results blind review](https://medium.com/center-for-effective-global-action/pre-results-review-at-the-journal-of-development-economics-taking-transparency-in-the-discipline-cc1e7e74182a).
 AER requires development but not lab experiments to be registered.
 Another example are the Open Science Badges that more and more journals are
 using, and that seem to really work [@Kidwell2016_badges_acknowledge]
-</aside>
+:::
 
-===1===
-
-### Discussion
+## Discussion
 
 What methods could you implement in your current project?
 
-===1===
-
-## Readings
+# Readings
 
 * [Code and Data](https://web.stanford.edu/~gentzkow/research/CodeAndData.pdf) [@Gentzkow2014_code_data]
 * [Best Practices Manual](https://github.com/garretchristensen/BestPracticesManual/blob/master/Manual.pdf) [@Christensen2018_manual_best]
 
-===1===
-
-## Thank you!
+# Thank you!
 
 <adam@altmejd.se>
 
-===1===
-
-## References
-<!-- .slide: id="refslide" -->
+# References {.allowframebreaks}

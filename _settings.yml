@@ -1,0 +1,31 @@
+lang: en
+
+revealjs-url: assets/lib/reveal.js
+
+theme: white
+
+css:
+  - "assets/style.css"
+  - "assets/tomorrow-night-eighties.css"
+
+#Display presentation control arrows
+controls: "false"
+
+#Display a presentation progress bar
+progress: "true"
+
+#Display the page number of the current slide
+slideNumber: "true"
+
+#Vertical centering of slides
+center: "true"
+
+#Transition style
+transition: "none" #none/fade/slide/convex/concave/zoom
+
+#Transition style for full page slide backgrounds
+backgroundTransition: "none" #none/fade/slide/convex/concave/zoom
+
+#Add the current slide number to the URL hash so that reloading the
+#page/copying the URL will return you to the same slide
+hash: "true"

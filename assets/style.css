@@ -1,4 +1,33 @@
-/* RMARKDOWN STUFF */
+.reveal {
+    font-size: 38px !important;
+}
+
+.reveal code {
+    font-size: 1em !important;
+    line-height: 1.1em !important;
+}
+
+footer {
+    text-align: right !important;
+    margin-top: 1rem !important;
+    font-size: 1rem !important;
+}
+
+.reveal section img {
+    border: none !important;
+}
+
+ul.nobullet { list-style-type: none !important; }
+
+/* Make sure references do not overflow */
+#refs {
+    height: 600px;
+    overflow-y: auto !important;
+    font-size: 1rem !important;
+    text-align: left;
+}
+
+/* RMARKDOWN STYLING */
 
 .reveal h1 { font-size: 2.0em; }
 .reveal h2 { font-size: 1.5em;  }
@@ -34,64 +63,4 @@
     padding-right: 25px;
     border-style: dotted;
     border-color: gray;
-}
-
-
-/* MY STUFF */
-
-.reveal {
-    font-size: 38px !important;
-}
-
-.reveal code {
-    font-size: 1em !important;
-    line-height: 1.1em !important;
-}
-
-#refslide {
-    height: 700px;
-    overflow-y: auto !important;
-}
-
-#refslide p, #refslide ol, #refslide li {
-    font-size: 1rem !important;
-    line-height: 1.1;
-}
-
-footer {
-    /* position: absolute !important;
-    bottom: 0% !important;
-    width: 100% !important; */
-    text-align: right !important;
-    margin-top: 1rem !important;
-    font-size: 1rem !important;
-}
-
-.reveal section img {
-    border: none !important;
-}
-
-ul.nobullet { list-style-type: none !important; }
-
-/* 1. Style header/footer <div> so they are positioned as desired. */
-/* https://github.com/hakimel/reveal.js/issues/806 */
-#header-left {
-    position: absolute;
-    top: 0%;
-    left: 0%;
-}
-#header-right {
-    position: absolute;
-    top: 0%;
-    right: 0%;
-}
-#footer-left {
-    position: absolute;
-    bottom: 0%;
-    left: 0%;
-}
-#footer-right {
-    position: absolute;
-    bottom: 0%;
-    right: 0%;
 }

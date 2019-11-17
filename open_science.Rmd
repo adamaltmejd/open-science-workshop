@@ -500,7 +500,7 @@ within-family analysis, but what does this even mean in a family of two siblings
 <footer><https://github.com/hhsievertsen/speccurve></footer>
 
 ::: notes
-
+From not yet published paper by Hans Sievertsen.
 :::
 
 ## A Reproducibility-Enhancing Research Workflow

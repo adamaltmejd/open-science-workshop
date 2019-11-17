@@ -22,9 +22,9 @@
   </style>
 
   <style>
-    a.sourceLine { display: inline-block; line-height: 1.25; }
-    a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-    a.sourceLine:empty { height: 1.2em; }
+    code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode { white-space: pre; position: relative; }
     div.sourceCode { margin: 1em 0; }
@@ -34,14 +34,16 @@
     }
     @media print {
     code.sourceCode { white-space: pre-wrap; }
-    a.sourceLine { text-indent: -1em; padding-left: 1em; }
+    code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
     }
-    pre.numberSource a.sourceLine
-      { position: relative; left: -4em; }
-    pre.numberSource a.sourceLine::before
-      { content: attr(title);
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
         position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; pointer-events: all; display: inline-block;
+        border: none; display: inline-block;
         -webkit-touch-callout: none; -webkit-user-select: none;
         -khtml-user-select: none; -moz-user-select: none;
         -ms-user-select: none; user-select: none;
@@ -50,9 +52,9 @@
       }
     pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
     div.sourceCode
-      {  }
+      {   }
     @media screen {
-    a.sourceLine::before { text-decoration: underline; }
+    code.sourceCode > span > a:first-child::before { text-decoration: underline; }
     }
     code span.al { color: #ff0000; font-weight: bold; } /* Alert */
     code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -237,9 +239,6 @@
     <li><strong>Direct Replication</strong>: internal validity</li>
     <li><strong>Conceptual Replication</strong>: external validity</li>
     </ul>
-    </section><section id="discussion" class="slide level2">
-    <h2>Discussion</h2>
-    <p>Is there a replication crisis in your field?</p>
     </section></section>
     <section><section id="part-2-the-problem" class="title-slide slide level1"><h1>Part 2<br /> — <br />The Problem</h1></section><section class="slide level2">
     
@@ -274,6 +273,28 @@
     </footer>
     <aside class="notes">
     <p>Paper analyzes 200 experiments in Social Sciences (mainly Pol Sci, Psych and Soc). Uses TESS (Time-Sharing Experiments in the Social Sciences). All experiments peer reviewed, done by same analytics firm, requires power calculation. Likely lower bound of all research.</p>
+    </aside>
+    </section><section id="what-is-a-p-value" class="slide level2">
+    <h2>What is a P-value?</h2>
+    <p class="fragment">
+    <em>Under the null</em>, how <strong>likely</strong> is the observed data?
+    </p>
+    <p class="fragment">
+    Says <strong>nothing</strong> about assumptions+hypothesis validity.
+    </p>
+    <aside class="notes">
+    <p>Imagine you have a coin and want to determine if its fair or not. We set a=0.05. This gives us a rejection region (with a=0.05) at 0,1,9,10 heads in 10 flips. Seeing 9 heads in a trial has a p-value of ~0.02. We reject the null because if the null was true, our data would be too unlikely.<br> Notice how this doesn’t say anything about whether the null is true or not. Or about the actual fairness of the coin. If the coin is actually not fair, the likelyhood we would observe the data depends on its bias.<br> Remembering that p-values don’t validate hypothesis might make it easier to stop relying so much on them.</p>
+    </aside>
+    </section><section class="slide level2">
+    
+    <p class="stretch">
+    <img data-src="assets/img/nuzzo2014.png" alt="Nuzzo 2014" />
+    </p>
+    <footer>
+    <span class="citation" data-cites="Nuzzo2014_scientific_method">Nuzzo (2014)</span>
+    </footer>
+    <aside class="notes">
+    <p>Depending on original odds “likelihood to observe effect” can vary greatly. Figure can be understood as follows: p-value gives likelihood to observe data under null, but is the effect (alternative hypothesis) true? We study a hypothesis thats really unlikely (long-shot) and observe some data. The data is so extreme that it would be unlikely under the null, so we reject H0. But because the hypothesis was really unlikely to start with, this just changes our prior of 10% to a posterior of 11%.</p>
     </aside>
     </section><section id="forking-p-hacking-fishing-researcher-degrees-of-freedom" class="slide level2">
     <h2>Forking, P-hacking, Fishing, Researcher Degrees of Freedom</h2>
@@ -318,24 +339,6 @@
     <footer>
     <span class="citation" data-cites="Wicherts2016_degrees_freedom">Wicherts et al. (2016)</span>
     </footer>
-    </section><section id="what-is-a-p-value" class="slide level2">
-    <h2>What is a P-value?</h2>
-    <p><em>Under the null</em>, how <strong>likely</strong> is the observed data</p>
-    <p>Says <strong>nothing</strong> about assumptions+hypothesis validity</p>
-    <aside class="notes">
-    <p>Imagine you have a coin and want to determine if its fair or not. We set a=0.05. This gives us a rejection region (with a=0.05) at 0,1,9,10 heads in 10 flips. Seeing 9 heads in a trial has a p-value of ~0.02. We reject the null because if the null was true, our data would be too unlikely.<br> Notice how this doesn’t say anything about whether the null is true or not. Or about the actual fairness of the coin. If the coin is actually not fair, the likelyhood we would observe the data depends on its bias.<br> Remembering that p-values don’t validate hypothesis might make it easier to stop relying so much on them.</p>
-    </aside>
-    </section><section class="slide level2">
-    
-    <p class="stretch">
-    <img data-src="assets/img/nuzzo2014.png" alt="Nuzzo 2014" />
-    </p>
-    <footer>
-    <span class="citation" data-cites="Nuzzo2014_scientific_method">Nuzzo (2014)</span>
-    </footer>
-    <aside class="notes">
-    <p>Depending on original odds “likelihood to observe effect” can vary greatly. Figure can be understood as follows: p-value gives likelihood to observe data under null, but is the effect (alternative hypothesis) true? We study a hypothesis thats really unlikely (long-shot) and observe some data. The data is so extreme that it would be unlikely under the null, so we reject H0. But because the hypothesis was really unlikely to start with, this just changes our prior of 10% to a posterior of 11%.</p>
-    </aside>
     </section><section id="low-statistical-power" class="slide level2">
     <h2>Low Statistical Power</h2>
     <ul>
@@ -369,9 +372,6 @@
     <aside class="notes">
     <p>Bayesian truth serum incentives for truthtelling. Each participant is surveyed bout (a) their own questionable research practice (QRP), (b) their percieved prevalence in the population and (c) their belief about others likelihood to admit.</p>
     </aside>
-    </section><section id="discussion-1" class="slide level2">
-    <h2>Discussion</h2>
-    <p>What are the main problems for your field?</p>
     </section></section>
     <section><section id="part-3-what-can-you-do" class="title-slide slide level1"><h1>Part 3 <br>—</br> What can you do?</h1></section><section id="study-registration" class="slide level2">
     <h2>Study Registration</h2>
@@ -399,7 +399,7 @@
     <p><em>Pick a path through the garden and stick to it.</em></p>
     <p>Focus: sample selection, estimation</p>
     <p>Also: motivation, literature</p>
-    <p>Could be: your paper before results (maybe extension of grant proposal)</p>
+    <p>Could be: your paper before results <br>(maybe extension of grant proposal)</p>
     <aside class="notes">
     <p>Like <span class="citation" data-cites="Coffman2015_preanalysis_plans">Coffman and Niederle (2015)</span> argue, pre-analysis plans are even more important in empirical work, where replication is often hard or impossible. If all the data is already used, we can’t just generate more by running another experiment.</p>
     <p>Most important to tie hands with regards to forking. Pick one path in the garden and stick to it. See check list. But can also be useful to include motivation, literature review etc to claim a position in the research literature and explain all the research design choices.</p>
@@ -407,10 +407,9 @@
     </section><section id="register-a-pre-analysis-plan" class="slide level2">
     <h2>Register a Pre-Analysis Plan</h2>
     <ul>
-    <li>Ideal: registration <em>outputs final results</em></li>
-    <li><strong>Very hard</strong> with empirical research</li>
-    <li>Instead, be as detailed as possible,</li>
-    <li>consider data <em>lock-box</em> and two registrations</li>
+    <li>Ideal: registration <em>outputs final results</em>, <br>will not work with empirical research.</li>
+    <li>Vague PAP is better than nothing.</li>
+    <li>Consider putting X% of data in <em>lock-box</em>.</li>
     </ul>
     <aside class="notes">
     <p>With empirical work it is almost impossible to figure everything out before looking at the data. Instead it can be really useful to adopt a lock-box approach. (1) Write a pre-analysis plan with everything you know and register it. Then take half (if possible) or as little as a few observations if you are worried about power, out of the lock box. Do the analysis, fix all the unexpected errors, do as much data exploration as you want. Then register another version of the PAP (at this point it might almost be a paper). Only then do you use the rest of the data.</p>
@@ -440,9 +439,53 @@
     <footer>
     <span class="citation" data-cites="Altmejd2017_pre_analysis">Altmejd (2017)</span>
     </footer>
+    </section><section id="pre-analysis-plans-a-stocktaking" class="slide level2">
+    <h2>Pre-analysis Plans: A Stocktaking</h2>
+    <ul>
+    <li>195 development PAPs (AEA, EGAP, -2016)</li>
+    <li>PAPs specify:
+    <ul>
+    <li>Clear hypothesis (90%)</li>
+    <li><span class="math inline"> &gt; 5</span> hypotheses (58%)</li>
+    <li>Statistical models (68%)</li>
+    <li>Attrition (25%)</li>
+    <li>Outliers (8%)</li>
+    </ul></li>
+    </ul>
+    <footer>
+    <span class="citation" data-cites="Ofosu2019_preanalysis_plans">Ofosu and Posner (2019)</span>
+    </footer>
+    <aside class="notes">
+    <p>195 PAPs from EGAP and AEA, mostly development. 63% field experiment, 27% survey, 4% lab and 4% observational. Outcomes often well specified, not control variables and only 68% spell out statistical model and a minority talk about attrition, outliers and treatment imbalance.</p>
+    </aside>
+    </section><section id="in-93-papers" class="slide level2">
+    <h2>In 93 papers:</h2>
+    <ul>
+    <li>25% of PAP hypotheses not reported</li>
+    <li>18% additional tests<br>(82% do not mention PAP adherence)</li>
+    <li>Why? No policing equilibrium.</li>
+    </ul>
+    <footer>
+    <span class="citation" data-cites="Ofosu2019_preanalysis_plans">Ofosu and Posner (2019)</span>
+    </footer>
+    <aside class="notes">
+    <p>93 papers have been published. 25% of hypotheses are not included and 82% of papers that include additional hypothesis do not mention that these were not included in the PAP.</p>
+    <p>People think PAPs are costly 26% say it took more than a month, but also worth it an rewarding. And 52% say they experience (large) downstream time saving. “I almost always deviate from the PAP in order to make a paper that makes sense.”</p>
+    </aside>
+    </section><section id="section" class="slide level2">
+    <h2></h2>
+    <blockquote>
+    <p>I’ve gotten an absurd number of requests for sensitivity analyses for strictly pre-specified empirical work. The existing norm appears to keep me from looking for unexpected results while providing no protection from readers or reviewers who want to dig through the data trying to kill off empirical results they don’t agree with.</p>
+    </blockquote>
+    <footer>
+    <span class="citation" data-cites="Ofosu2019_preanalysis_plans">Ofosu and Posner (2019)</span>
+    </footer>
+    <aside class="notes">
+    <p>But 46% of users have invoked PAPs to respond to editors.</p>
+    </aside>
     </section><section id="specification-curve" class="slide level2">
     <h2>Specification Curve</h2>
-    <p>If you cannot <em>pre</em>-pick one analysis, study <strong>all</strong></p>
+    <p>If you cannot <em>pre</em>-pick one analysis, study <strong>all</strong>.</p>
     <footer>
     <span class="citation" data-cites="Simonsohn2015_specification_curve">Simonsohn, Simmons, and Nelson (2015)</span>
     </footer>
@@ -473,6 +516,18 @@
     <aside class="notes">
     <p>Birth order effects on positive reciprocity. Here on the other hand there does not seem to exist any relationship. Effects are distrubted in both directions. Most significant effects are negative, but not many are significant. Only sibships of 2, with close (but not too close) age difference. Effect is only visible in within-family analysis, but what does this even mean in a family of two siblings?</p>
     </aside>
+    </section><section id="another-curve" class="slide level2">
+    <h2>Another curve</h2>
+    <h3 id="what-is-the-signaling-value-of-gpa">What is the signaling value of GPA?</h3>
+    <p class="stretch">
+    <img data-src="assets/img/sievertsen2019_spec_curve.png" alt="Specification curve of Sievertsen" />
+    </p>
+    <footer>
+    <a href="https://github.com/hhsievertsen/speccurve" class="uri">https://github.com/hhsievertsen/speccurve</a>
+    </footer>
+    <aside class="notes">
+    
+    </aside>
     </section><section id="a-reproducibility-enhancing-research-workflow" class="slide level2">
     <h2>A Reproducibility-Enhancing Research Workflow</h2>
     </section><section id="data-management" class="slide level2">
@@ -499,23 +554,23 @@
     </aside>
     </section><section id="example" class="slide level2">
     <h2>Example</h2>
-    <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1">rowmeans &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) {</a>
-    <a class="sourceLine" id="cb1-2" title="2">  <span class="co"># Calculate pairwise means of numeric input vectors.</span></a>
-    <a class="sourceLine" id="cb1-3" title="3">  <span class="co"># Input: two vectors of equal length; &quot;x&quot;, &quot;y&quot;</span></a>
-    <a class="sourceLine" id="cb1-4" title="4">  <span class="co"># Output: one vector &quot;out&quot; of means.</span></a>
-    <a class="sourceLine" id="cb1-5" title="5"></a>
-    <a class="sourceLine" id="cb1-6" title="6">  <span class="cf">if</span> (<span class="kw">length</span>(x) <span class="op">!=</span><span class="st"> </span><span class="kw">length</span>(y)) <span class="kw">stop</span>(<span class="st">&quot;x, y have unequal lengths&quot;</span>)</a>
-    <a class="sourceLine" id="cb1-7" title="7"></a>
-    <a class="sourceLine" id="cb1-8" title="8">  <span class="co"># Create empty vector to fill with rowmeans</span></a>
-    <a class="sourceLine" id="cb1-9" title="9">  out &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;numeric&quot;</span>, <span class="dt">length =</span> <span class="kw">length</span>(x))</a>
-    <a class="sourceLine" id="cb1-10" title="10"></a>
-    <a class="sourceLine" id="cb1-11" title="11">  <span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq_along</span>(x)) {</a>
-    <a class="sourceLine" id="cb1-12" title="12">    <span class="co"># For each row, calculate mean of x and y and store in z.</span></a>
-    <a class="sourceLine" id="cb1-13" title="13">    out[i] &lt;-<span class="st"> </span><span class="kw">mean</span>(<span class="kw">c</span>(x[i], y[i]))</a>
-    <a class="sourceLine" id="cb1-14" title="14">  }</a>
-    <a class="sourceLine" id="cb1-15" title="15"></a>
-    <a class="sourceLine" id="cb1-16" title="16">  <span class="kw">return</span>(out)</a>
-    <a class="sourceLine" id="cb1-17" title="17">}</a></code></pre></div>
+    <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>rowmeans &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) {</span>
+    <span id="cb1-2"><a href="#cb1-2"></a>  <span class="co"># Calculate pairwise means of numeric input vectors.</span></span>
+    <span id="cb1-3"><a href="#cb1-3"></a>  <span class="co"># Input: two vectors of equal length; &quot;x&quot;, &quot;y&quot;</span></span>
+    <span id="cb1-4"><a href="#cb1-4"></a>  <span class="co"># Output: one vector &quot;out&quot; of means.</span></span>
+    <span id="cb1-5"><a href="#cb1-5"></a></span>
+    <span id="cb1-6"><a href="#cb1-6"></a>  <span class="cf">if</span> (<span class="kw">length</span>(x) <span class="op">!=</span><span class="st"> </span><span class="kw">length</span>(y)) <span class="kw">stop</span>(<span class="st">&quot;x, y have unequal lengths&quot;</span>)</span>
+    <span id="cb1-7"><a href="#cb1-7"></a></span>
+    <span id="cb1-8"><a href="#cb1-8"></a>  <span class="co"># Create empty vector to fill with rowmeans</span></span>
+    <span id="cb1-9"><a href="#cb1-9"></a>  out &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;numeric&quot;</span>, <span class="dt">length =</span> <span class="kw">length</span>(x))</span>
+    <span id="cb1-10"><a href="#cb1-10"></a></span>
+    <span id="cb1-11"><a href="#cb1-11"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq_along</span>(x)) {</span>
+    <span id="cb1-12"><a href="#cb1-12"></a>    <span class="co"># For each row, calculate mean of x and y and store in z.</span></span>
+    <span id="cb1-13"><a href="#cb1-13"></a>    out[i] &lt;-<span class="st"> </span><span class="kw">mean</span>(<span class="kw">c</span>(x[i], y[i]))</span>
+    <span id="cb1-14"><a href="#cb1-14"></a>  }</span>
+    <span id="cb1-15"><a href="#cb1-15"></a></span>
+    <span id="cb1-16"><a href="#cb1-16"></a>  <span class="kw">return</span>(out)</span>
+    <span id="cb1-17"><a href="#cb1-17"></a>}</span></code></pre></div>
     </section><section id="version-control" class="slide level2">
     <h2>Version Control</h2>
     <ul>
@@ -568,11 +623,9 @@
     <aside class="notes">
     <p>Change already well underway, but needs strong advocates. <a href="https://medium.com/center-for-effective-global-action/pre-results-review-at-the-journal-of-development-economics-taking-transparency-in-the-discipline-cc1e7e74182a">JDE has results blind review</a>. AER requires development but not lab experiments to be registered. Another example are the Open Science Badges that more and more journals are using, and that seem to really work <span class="citation" data-cites="Kidwell2016_badges_acknowledge">(Kidwell et al. 2016)</span></p>
     </aside>
-    </section><section id="discussion-2" class="slide level2">
-    <h2>Discussion</h2>
-    <p>What methods could you implement in your current project?</p>
     </section></section>
     <section id="readings" class="title-slide slide level1"><h1>Readings</h1><ul>
+    <li><a href="https://www.ucpress.edu/book/9780520296954/transparent-and-reproducible-social-science-research">Transparent and Reproducible Social Science Research</a> <span class="citation" data-cites="Christensen2019_transparent_reproducible">(Christensen, Freese, and Miguel 2019)</span></li>
     <li><a href="https://web.stanford.edu/~gentzkow/research/CodeAndData.pdf">Code and Data</a> <span class="citation" data-cites="Gentzkow2014_code_data">(Gentzkow and Shapiro 2014)</span></li>
     <li><a href="https://github.com/garretchristensen/BestPracticesManual/blob/master/Manual.pdf">Best Practices Manual</a> <span class="citation" data-cites="Christensen2018_manual_best">(Christensen 2018)</span></li>
     </ul></section>
@@ -598,6 +651,9 @@
     </div>
     <div id="ref-Christensen2018_manual_best">
     <p>Christensen, Garret. 2018. “Manual of Best Practices in Transparent Social Science Research.” <a href="https://github.com/garretchristensen/BestPracticesManual/blob/master/Manual.pdf">https://github.com/garretchristensen/BestPracticesManual/blob/master/Manual.pdf</a>.</p>
+    </div>
+    <div id="ref-Christensen2019_transparent_reproducible">
+    <p>Christensen, Garret, Jeremy Freese, and Edward Miguel. 2019. <em>Transparent and Reproducible Social Science Research: How to Do Open Science</em>. 1st ed. University of California Press Books. <a href="https://www.ucpress.edu/book/9780520296954/transparent-and-reproducible-social-science-research">https://www.ucpress.edu/book/9780520296954/transparent-and-reproducible-social-science-research</a>.</p>
     </div>
     <div id="ref-Coffman2015_preanalysis_plans">
     <p>Coffman, Lucas C., and Muriel Niederle. 2015. “Pre-Analysis Plans Have Limited Upside, Especially Where Replications Are Feasible.” <em>Journal of Economic Perspectives</em> 29 (3): 81–98. <a href="https://doi.org/10.1257/jep.29.3.81">https://doi.org/10.1257/jep.29.3.81</a>.</p>
@@ -643,6 +699,9 @@
     </div>
     <div id="ref-Nuzzo2014_scientific_method">
     <p>Nuzzo, Regina. 2014. “Scientific Method: Statistical Errors.” <em>Nature News</em> 506 (7487): 150. <a href="https://www.nature.com/news/scientific-method-statistical-errors-1.14700">https://www.nature.com/news/scientific-method-statistical-errors-1.14700</a>.</p>
+    </div>
+    <div id="ref-Ofosu2019_preanalysis_plans">
+    <p>Ofosu, George K, and Daniel N Posner. 2019. “Pre-Analysis Plans: A Stocktaking.”</p>
     </div>
     <div id="ref-Popper2005_logic_scientific">
     <p>Popper, Karl. 2005. <em>The Logic of Scientific Discovery</em>. Routledge. <a href="https://www.taylorfrancis.com/books/9781134470020">https://www.taylorfrancis.com/books/9781134470020</a>.</p>

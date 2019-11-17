@@ -153,10 +153,6 @@ Produce **reproducibile** research that can be *replicated easily*.
 - **Direct Replication**: internal validity
 - **Conceptual Replication**: external validity
 
-## Discussion
-
-Is there a replication crisis in your field?
-
 # Part 2<br /> --- <br />The Problem
 
 ---
@@ -218,6 +214,39 @@ peer reviewed, done by same analytics firm, requires power calculation. Likely
 lower bound of all research.
 :::
 
+## What is a P-value?
+
+<p class = "fragment">*Under the null*, how **likely** is the observed data?</p>
+
+<p class = "fragment">Says **nothing** about assumptions+hypothesis validity.</p>
+
+::: notes
+Imagine you have a coin and want to determine if its fair or not. We set a=0.05.
+This gives us a rejection region (with a=0.05) at 0,1,9,10 heads in 10 flips.
+Seeing 9 heads in a trial has a p-value of ~0.02. We reject the null because
+if the null was true, our data would be too unlikely.<br>
+Notice how this doesn't say anything about whether the null is true or not. Or
+about the actual fairness of the coin. If the coin is actually not fair, the
+likelyhood we would observe the data depends on its bias.<br>
+Remembering that p-values don't validate hypothesis might make it easier to
+stop relying so much on them.
+:::
+
+---
+
+<p class="stretch">![Nuzzo 2014](assets/img/nuzzo2014.png)</p>
+<footer>@Nuzzo2014_scientific_method</footer>
+
+::: notes
+Depending on original odds "likelihood to observe effect" can vary greatly.
+Figure can be understood as follows: p-value gives likelihood to observe data
+under null, but is the effect (alternative hypothesis) true? We study a
+hypothesis thats really unlikely (long-shot) and observe some data. The data
+is so extreme that it would be unlikely under the null, so we reject H0. But
+because the hypothesis was really unlikely to start with, this just changes our
+prior of 10% to a posterior of 11%.
+:::
+
 ## Forking, P-hacking, Fishing, Researcher Degrees of Freedom
 
 ---
@@ -261,39 +290,6 @@ If observed significance influences these choices, **p-values are meaningless**.
 
 <footer>@Wicherts2016_degrees_freedom</footer>
 
-## What is a P-value?
-
-*Under the null*, how **likely** is the observed data
-
-Says **nothing** about assumptions+hypothesis validity
-
-::: notes
-Imagine you have a coin and want to determine if its fair or not. We set a=0.05.
-This gives us a rejection region (with a=0.05) at 0,1,9,10 heads in 10 flips.
-Seeing 9 heads in a trial has a p-value of ~0.02. We reject the null because
-if the null was true, our data would be too unlikely.<br>
-Notice how this doesn't say anything about whether the null is true or not. Or
-about the actual fairness of the coin. If the coin is actually not fair, the
-likelyhood we would observe the data depends on its bias.<br>
-Remembering that p-values don't validate hypothesis might make it easier to
-stop relying so much on them.
-:::
-
----
-
-<p class="stretch">![Nuzzo 2014](assets/img/nuzzo2014.png)</p>
-<footer>@Nuzzo2014_scientific_method</footer>
-
-::: notes
-Depending on original odds "likelihood to observe effect" can vary greatly.
-Figure can be understood as follows: p-value gives likelihood to observe data
-under null, but is the effect (alternative hypothesis) true? We study a
-hypothesis thats really unlikely (long-shot) and observe some data. The data
-is so extreme that it would be unlikely under the null, so we reject H0. But
-because the hypothesis was really unlikely to start with, this just changes our
-prior of 10% to a posterior of 11%.
-:::
-
 ## Low Statistical Power
 
 - Even with registries, subgroups can get small
@@ -333,10 +329,6 @@ prevalence in the population and (c) their belief about others likelihood
 to admit.
 :::
 
-## Discussion
-
-What are the main problems for your field?
-
 # Part 3 <br>---</br> What can you do?
 
 ## Study Registration
@@ -369,7 +361,7 @@ Focus: sample selection, estimation
 
 Also: motivation, literature
 
-Could be: your paper before results (maybe extension of grant proposal)
+Could be: your paper before results <br>(maybe extension of grant proposal)
 
 ::: notes
 Like @Coffman2015_preanalysis_plans argue, pre-analysis plans are even more
@@ -385,10 +377,9 @@ position in the research literature and explain all the research design choices.
 
 ## Register a Pre-Analysis Plan
 
-- Ideal: registration *outputs final results*
-- **Very hard** with empirical research
-- Instead, be as detailed as possible,
-- consider data *lock-box* and two registrations
+- Ideal: registration *outputs final results*, <br>will not work with empirical research.
+- Vague PAP is better than nothing.
+- Consider putting X% of data in *lock-box*.
 
 ::: notes
 With empirical work it is almost impossible to figure everything out before
@@ -420,9 +411,49 @@ Just tell them you only want them to share x% with you.
 <p class="stretch">![PAP Example 2](assets/img/pap3.png)</p>
 <footer>@Altmejd2017_pre_analysis</footer>
 
+## Pre-analysis Plans: A Stocktaking
+
+- 195 development PAPs (AEA, EGAP, -2016)
+- PAPs specify:
+  - Clear hypothesis (90%)
+  - $>5$ hypotheses (58%)
+  - Statistical models (68%)
+  - Attrition (25%)
+  - Outliers (8%)
+
+<footer>@Ofosu2019_preanalysis_plans</footer>
+
+::: notes
+195 PAPs from EGAP and AEA, mostly development. 63% field experiment, 27% survey, 4% lab and 4% observational. Outcomes often well specified, not control variables and only 68% spell out statistical model and a minority talk about attrition, outliers and treatment imbalance.
+:::
+
+## In 93 papers:
+
+- 25% of PAP hypotheses not reported
+- 18% additional tests<br>(82% do not mention PAP adherence)
+- Why? No policing equilibrium.
+
+<footer>@Ofosu2019_preanalysis_plans</footer>
+
+::: notes
+93 papers have been published. 25% of hypotheses are not included and 82% of papers that include additional hypothesis do not mention that these were not included in the PAP.
+
+People think PAPs are costly 26% say it took more than a month, but also worth it an rewarding. And 52% say they experience (large) downstream time saving. "I almost always deviate from the PAP in order to make a paper that makes sense."
+:::
+
+##
+
+> I’ve gotten an absurd number of requests for sensitivity analyses for strictly pre-specified empirical work. The existing norm appears to keep me from looking for unexpected results while providing no protection from readers or reviewers who want to dig through the data trying to kill off empirical results they don’t agree with.
+
+<footer>@Ofosu2019_preanalysis_plans</footer>
+
+::: notes
+But 46% of users have invoked PAPs to respond to editors.
+:::
+
 ## Specification Curve
 
-If you cannot *pre*-pick one analysis, study **all**
+If you cannot *pre*-pick one analysis, study **all**.
 
 <footer>@Simonsohn2015_specification_curve</footer>
 
@@ -458,6 +489,18 @@ not seem to exist any relationship. Effects are distrubted in both directions. M
 significant effects are negative, but not many are significant. Only sibships of 2,
 with close (but not too close) age difference. Effect is only visible in
 within-family analysis, but what does this even mean in a family of two siblings?
+:::
+
+## Another curve
+
+### What is the signaling value of GPA?
+
+<p class="stretch">![Specification curve of Sievertsen](assets/img/sievertsen2019_spec_curve.png)</p>
+
+<footer><https://github.com/hhsievertsen/speccurve></footer>
+
+::: notes
+
 :::
 
 ## A Reproducibility-Enhancing Research Workflow
@@ -580,12 +623,9 @@ Another example are the Open Science Badges that more and more journals are
 using, and that seem to really work [@Kidwell2016_badges_acknowledge]
 :::
 
-## Discussion
-
-What methods could you implement in your current project?
-
 # Readings
 
+* [Transparent and Reproducible Social Science Research](https://www.ucpress.edu/book/9780520296954/transparent-and-reproducible-social-science-research) [@Christensen2019_transparent_reproducible]
 * [Code and Data](https://web.stanford.edu/~gentzkow/research/CodeAndData.pdf) [@Gentzkow2014_code_data]
 * [Best Practices Manual](https://github.com/garretchristensen/BestPracticesManual/blob/master/Manual.pdf) [@Christensen2018_manual_best]
 

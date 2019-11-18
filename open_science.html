@@ -207,6 +207,44 @@
     <aside class="notes">
     <p>Totally 125 labs participated with 15k subjects, 28 effects (all expert reviewed). In plot, small bars indicate results from each lab. Main takeaway: variation exists, but most effects either replicate or not. No matter the country or other (unobserved?) lab-specific variation. Grey triangle shows WIERD sample, empty triangle less WIERD.</p>
     </aside>
+    </section><section id="p-hacking-in-economics" class="slide level2">
+    <h2>P-Hacking in Economics</h2>
+    <p class="stretch">
+    <img data-src="assets/img/brodeur2016.png" alt="Brodeur 2016" />
+    </p>
+    <footer>
+    <span class="citation" data-cites="Brodeur2016_star_wars">Brodeur et al. (2016)</span>
+    </footer>
+    <aside class="notes">
+    <p>Plots show distribution of <strong>z-stats</strong> in AER, QJE, JPE. Total sample 50k tests. Camel shape of missing p-values is p-hacking to get p-stats just below 0.05. Publication bias is downward-slope over whole distribution. “Eye-catchers” refers to the use of stars to make significant results salient.</p>
+    </aside>
+    </section><section id="power-in-economics" class="slide level2">
+    <h2>Power in Economics</h2>
+    <ul>
+    <li>64,076 in 6,700 studies</li>
+    <li>Median power 18%</li>
+    <li>80% of effects exaggerated (x2)</li>
+    </ul>
+    <footer>
+    <span class="citation" data-cites="Ioannidis2017_power_bias">Ioannidis, Stanley, and Doucouliagos (2017)</span>
+    </footer>
+    <aside class="notes">
+    <p><span class="citation" data-cites="Ioannidis2017_power_bias">Ioannidis, Stanley, and Doucouliagos (2017)</span> “We survey 159 empirical economics literatures that draw upon 64,076 estimates of economic parameters reported in more than 6,700 empirical studies. Half of the research areas have nearly 90% of their results under‐powered. The median statistical power is 18%, or less. A simple weighted average of those reported results that are adequately powered (power ≥ 80%) reveals that nearly 80% of the reported effects in these empirical economics literatures are exaggerated; typically, by a factor of two and with one‐third inflated by a factor of four or more.”</p>
+    </aside>
+    </section><section id="iv-is-not-reliable" class="slide level2">
+    <h2>IV is not reliable</h2>
+    <ul>
+    <li>1359 IV regressions from 31 AEA papers</li>
+    </ul>
+    <p class="stretch">
+    <img data-src="assets/img/young2019.png" alt="Young 2019" />
+    </p>
+    <footer>
+    <span class="citation" data-cites="Young2019_consistency_inference">Young (2019)</span>
+    </footer>
+    <aside class="notes">
+    <p><span class="citation" data-cites="Young2019_consistency_inference">Young (2019)</span> 1359 IV regressions from 31 papers published in AEA journals. Non-iid errors bias IV, leading to very low power and MSE i almost always lower than the biased OLS. Weak-instrument tests do not work. Significance comes from 1-2 outliiers.</p>
+    </aside>
     </section><section id="why-should-we-care" class="slide level2">
     <h2>Why Should we Care?</h2>
     <p>For science:</p>
@@ -313,21 +351,14 @@
     <p class="stretch">
     <img data-src="assets/img/xkcd_3.png" alt="xkcd comic part 3" />
     </p>
-    </section><section id="p-hacking-in-economics" class="slide level2">
-    <h2>P-Hacking in Economics</h2>
-    <p class="stretch">
-    <img data-src="assets/img/brodeur2016.png" alt="Brodeur 2016" />
-    </p>
-    <footer>
-    Papers in Economics, <span class="citation" data-cites="Brodeur2016_star_wars">Brodeur et al. (2016)</span>
-    </footer>
-    <aside class="notes">
-    <p>Plots show distribution of <strong>z-stats</strong> in AER, QJE, JPE. Total sample 50k tests. Camel shape of missing p-values is p-hacking to get p-stats just below 0.05. Publication bias is downward-slope over whole distribution. “Eye-catchers” refers to the use of stars to make significant results salient.</p>
-    </aside>
     </section><section id="forking-paths" class="slide level2">
     <h2>Forking Paths</h2>
-    <p>Even with a pre-stated hypothesis and no <em>conscious</em> p-hacking, each design choice is a fork in the path towards a finished paper.</p>
-    <p>If observed significance influences these choices, <strong>p-values are meaningless</strong>.</p>
+    <p class="fragment">
+    Even with a pre-stated hypothesis and no <i>conscious</i> p-hacking, each design choice is a <i>fork in the path</i> towards a finished paper.
+    </p>
+    <p class="fragment">
+    If observed significance influences these choices, <b>p-values are meaningless</b>.
+    </p>
     <footer>
     <span class="citation" data-cites="Gelman2013_garden_forking">Gelman and Loken (2013)</span>
     </footer>
@@ -726,6 +757,9 @@
     </div>
     <div id="ref-Wicherts2016_degrees_freedom">
     <p>Wicherts, Jelte M., Coosje L. S. Veldkamp, Hilde E. M. Augusteijn, Marjan Bakker, Robbie C. M. van Aert, and Marcel A. L. M. van Assen. 2016. “Degrees of Freedom in Planning, Running, Analyzing, and Reporting Psychological Studies: A Checklist to Avoid P-Hacking.” <em>Frontiers in Psychology</em> 7. <a href="https://doi.org/10.3389/fpsyg.2016.01832">https://doi.org/10.3389/fpsyg.2016.01832</a>.</p>
+    </div>
+    <div id="ref-Young2019_consistency_inference">
+    <p>Young, Alwyn. 2019. “Consistency Without Inference: Instrumental Variables in Practical Application.”</p>
     </div>
     <div id="ref-Zhong2006_washing_away">
     <p>Zhong, Chen-Bo, and Katie Liljenquist. 2006. “Washing Away Your Sins: Threatened Morality and Physical Cleansing.” <em>Science</em> 313 (5792): 1451–2. <a href="https://doi.org/10.1126/science.1130726">https://doi.org/10.1126/science.1130726</a>.</p>

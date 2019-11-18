@@ -119,6 +119,52 @@ but most effects either replicate or not. No matter the country or other (unobse
 lab-specific variation. Grey triangle shows WIERD sample, empty triangle less WIERD.
 :::
 
+## P-Hacking in Economics
+
+<p class="stretch">![Brodeur 2016](assets/img/brodeur2016.png)</p>
+
+<footer>@Brodeur2016_star_wars</footer>
+
+::: notes
+Plots show distribution of **z-stats** in AER, QJE, JPE. Total sample 50k tests.
+Camel shape of missing p-values is p-hacking to get p-stats just below 0.05.
+Publication bias is downward-slope over whole distribution.
+"Eye-catchers" refers to the use of stars to make significant results salient.
+:::
+
+## Power in Economics
+
+- 64,076 in 6,700 studies
+- Median power 18%
+- 80% of effects exaggerated (x2)
+
+<footer>@Ioannidis2017_power_bias</footer>
+
+::: notes
+@Ioannidis2017_power_bias
+"We survey 159 empirical economics literatures that draw upon 64,076 estimates
+of economic parameters reported in more than 6,700 empirical studies. Half
+of the research areas have nearly 90% of their results under‐powered.
+The median statistical power is 18%, or less. A simple weighted average of
+those reported results that are adequately powered (power ≥ 80%) reveals
+that nearly 80% of the reported effects in these empirical economics
+literatures are exaggerated; typically, by a factor of two and with
+one‐third inflated by a factor of four or more."
+:::
+
+## IV is not reliable
+
+- 1359 IV regressions from 31 AEA papers
+
+<p class="stretch">![Young 2019](assets/img/young2019.png)</p>
+
+<footer>@Young2019_consistency_inference</footer>
+
+::: notes
+@Young2019_consistency_inference
+1359 IV regressions from 31 papers published in AEA journals. Non-iid errors bias IV, leading to very low power and MSE i almost always lower than the biased OLS. Weak-instrument tests do not work. Significance comes from 1-2 outliiers.
+:::
+
 ## Why Should we Care?
 
 For science:
@@ -262,25 +308,12 @@ prior of 10% to a posterior of 11%.
 <p class="stretch">![xkcd comic part 3](assets/img/xkcd_3.png)</p>
 
 
-## P-Hacking in Economics
-
-<p class="stretch">![Brodeur 2016](assets/img/brodeur2016.png)</p>
-
-<footer>Papers in Economics, @Brodeur2016_star_wars</footer>
-
-::: notes
-Plots show distribution of **z-stats** in AER, QJE, JPE. Total sample 50k tests.
-Camel shape of missing p-values is p-hacking to get p-stats just below 0.05.
-Publication bias is downward-slope over whole distribution.
-"Eye-catchers" refers to the use of stars to make significant results salient.
-:::
-
 ## Forking Paths
 
-Even with a pre-stated hypothesis and no *conscious* p-hacking, each design
-choice is a fork in the path towards a finished paper.
+<p class = "fragment">Even with a pre-stated hypothesis and no <i>conscious</i> p-hacking, each design choice is a <i>fork in the path</i> towards a finished paper.
+</p>
 
-If observed significance influences these choices, **p-values are meaningless**.
+<p class = "fragment">If observed significance influences these choices, <b>p-values are meaningless</b>.</p>
 
 <footer>@Gelman2013_garden_forking</footer>
 

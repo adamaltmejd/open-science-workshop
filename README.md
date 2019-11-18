@@ -6,11 +6,11 @@ Repository of slides for different talks. Latest version is available here. If y
 
 Handouts only in **Google Chrome** and have to be printed/exported in *landscape mode*.
 
+Enable speaker mode by pressing "s" to see the notes.
+
 [Introduction to Open Science](open_science.html) - [handout](open_science.html?print-pdf&showNotes=true) - Updated: 2019-11-18
 
 ## Building the repository
-
- and are available online at <https://adamaltmejd.se/slides>.
 
 Slides use [Reveal.js](reveal.js) but because the built-in revealjs R extension that works with `Rmarkdown` doesn't use the latest version and lacks some customization,
 this repository instead only uses `knitr` to convert from `.Rmd` to `.md` and then `Pandoc's` builtin presentation revealjs-functionality together with a custom template. To

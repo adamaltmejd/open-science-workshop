@@ -203,16 +203,16 @@ Produce **reproducibile** research that can be *replicated easily*.
 
 ---
 
+<p class="stretch">![Munafo 2017](assets/img/munafo2017.jpg)</p>
+
+<footer>@Munafo2017_manifesto_reproducible</footer>
+
+---
+
 1. **Publication Bias**
 2. **Forking (p-hacking)**
 3. **Low Statistical Power**
 4. **Scientific Misconduct**
-
----
-
-<p class="stretch">![Munafo 2017](assets/img/munafo2017.jpg)</p>
-
-<footer>@Munafo2017_manifesto_reproducible</footer>
 
 ## Publication Bias
 
@@ -273,7 +273,7 @@ Seeing 9 heads in a trial has a p-value of ~0.02. We reject the null because
 if the null was true, our data would be too unlikely.<br>
 Notice how this doesn't say anything about whether the null is true or not. Or
 about the actual fairness of the coin. If the coin is actually not fair, the
-likelyhood we would observe the data depends on its bias.<br>
+likelihood we would observe the data depends on its bias.<br>
 Remembering that p-values don't validate hypothesis might make it easier to
 stop relying so much on them.
 :::
@@ -297,6 +297,8 @@ prior of 10% to a posterior of 11%.
 
 ---
 
+### XKCD Explains P-Hacking
+
 <p class="stretch">![xkcd comic part 1](assets/img/xkcd_1.png)</p>
 
 ---
@@ -306,6 +308,16 @@ prior of 10% to a posterior of 11%.
 ---
 
 <p class="stretch">![xkcd comic part 3](assets/img/xkcd_3.png)</p>
+
+---
+
+<p class="stretch">![Bohannon chocolate scam](assets/img/bohannon_chocolate.png)</p>
+
+<footer><https://io9.gizmodo.com/i-fooled-millions-into-thinking-chocolate-helps-weight-1707251800></footer>
+
+::: notes
+Scam experiment that got tons of press, set out to p-hack. N=15 and 18 outcome variables (weight, cholesterol, sodium, blood protein, sleep, well-being, etc) At least one is very likely to turn out significant, which is the analysis that they then published. Paper now retracted.
+:::
 
 
 ## Forking Paths

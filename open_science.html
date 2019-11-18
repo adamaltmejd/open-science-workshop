@@ -280,20 +280,20 @@
     </section></section>
     <section><section id="part-2-the-problem" class="title-slide slide level1"><h1>Part 2<br /> — <br />The Problem</h1></section><section class="slide level2">
     
-    <ol type="1">
-    <li><strong>Publication Bias</strong></li>
-    <li><strong>Forking (p-hacking)</strong></li>
-    <li><strong>Low Statistical Power</strong></li>
-    <li><strong>Scientific Misconduct</strong></li>
-    </ol>
-    </section><section class="slide level2">
-    
     <p class="stretch">
     <img data-src="assets/img/munafo2017.jpg" alt="Munafo 2017" />
     </p>
     <footer>
     <span class="citation" data-cites="Munafo2017_manifesto_reproducible">Munafò et al. (2017)</span>
     </footer>
+    </section><section class="slide level2">
+    
+    <ol type="1">
+    <li><strong>Publication Bias</strong></li>
+    <li><strong>Forking (p-hacking)</strong></li>
+    <li><strong>Low Statistical Power</strong></li>
+    <li><strong>Scientific Misconduct</strong></li>
+    </ol>
     </section><section id="publication-bias" class="slide level2">
     <h2>Publication Bias</h2>
     <p><em>Published research is not representative.</em></p>
@@ -321,7 +321,7 @@
     Says <strong>nothing</strong> about assumptions+hypothesis validity.
     </p>
     <aside class="notes">
-    <p>Imagine you have a coin and want to determine if its fair or not. We set a=0.05. This gives us a rejection region (with a=0.05) at 0,1,9,10 heads in 10 flips. Seeing 9 heads in a trial has a p-value of ~0.02. We reject the null because if the null was true, our data would be too unlikely.<br> Notice how this doesn’t say anything about whether the null is true or not. Or about the actual fairness of the coin. If the coin is actually not fair, the likelyhood we would observe the data depends on its bias.<br> Remembering that p-values don’t validate hypothesis might make it easier to stop relying so much on them.</p>
+    <p>Imagine you have a coin and want to determine if its fair or not. We set a=0.05. This gives us a rejection region (with a=0.05) at 0,1,9,10 heads in 10 flips. Seeing 9 heads in a trial has a p-value of ~0.02. We reject the null because if the null was true, our data would be too unlikely.<br> Notice how this doesn’t say anything about whether the null is true or not. Or about the actual fairness of the coin. If the coin is actually not fair, the likelihood we would observe the data depends on its bias.<br> Remembering that p-values don’t validate hypothesis might make it easier to stop relying so much on them.</p>
     </aside>
     </section><section class="slide level2">
     
@@ -338,6 +338,7 @@
     <h2>Forking, P-hacking, Fishing, Researcher Degrees of Freedom</h2>
     </section><section class="slide level2">
     
+    <h3 id="xkcd-explains-p-hacking">XKCD Explains P-Hacking</h3>
     <p class="stretch">
     <img data-src="assets/img/xkcd_1.png" alt="xkcd comic part 1" />
     </p>
@@ -351,6 +352,17 @@
     <p class="stretch">
     <img data-src="assets/img/xkcd_3.png" alt="xkcd comic part 3" />
     </p>
+    </section><section class="slide level2">
+    
+    <p class="stretch">
+    <img data-src="assets/img/bohannon_chocolate.png" alt="Bohannon chocolate scam" />
+    </p>
+    <footer>
+    <a href="https://io9.gizmodo.com/i-fooled-millions-into-thinking-chocolate-helps-weight-1707251800" class="uri">https://io9.gizmodo.com/i-fooled-millions-into-thinking-chocolate-helps-weight-1707251800</a>
+    </footer>
+    <aside class="notes">
+    <p>Scam experiment that got tons of press, set out to p-hack. N=15 and 18 outcome variables (weight, cholesterol, sodium, blood protein, sleep, well-being, etc) At least one is very likely to turn out significant, which is the analysis that they then published. Paper now retracted.</p>
+    </aside>
     </section><section id="forking-paths" class="slide level2">
     <h2>Forking Paths</h2>
     <p class="fragment">

@@ -96,6 +96,7 @@ $endfor$
         $if(date)$
           <p class="date">$date$</p>
         $endif$
+        <footer><a href="https://adamaltmejd.se/slides">adamaltmejd.se/slides</a></footer>
       </section>
     $endif$
     $if(toc)$
